@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<organism-protein>
+<organism>
+human,mouse
+</organism>
+<protein>
+<human>
+G9A,EZH2,PRC2,CTCF,SUZ12
+</human>
+<mouse>
+Suz12,Ezh2,Sp1,G9a
+</mouse>
+</protein>
+</organism-protein>

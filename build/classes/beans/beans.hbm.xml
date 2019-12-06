@@ -1,0 +1,302 @@
+<?xml version="1.0"?>
+
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="beans">
+
+	<!-- STUDENT SECTION -->
+	
+      <class name="hdfregulatory"  lazy="false">  
+        <id name="rid" />   <!-- hibernate必须要有主键 -->
+	    <property name="diseasename" />
+		<property name="regulator" />
+		<property name="target" />
+        <property name="regulatorytype" />
+        <property name="levelofregulation" />
+		<property name="regulationdiretion" />
+		<property name="methodfcor" />
+		<property name="expressionpattern" />
+		<property name="methodfexp" />
+		<property name="dataaccession" />
+		<property name="influencedfunction" />
+		<property name="regulatorymechanism" />
+		<property name="drugs" />
+		<property name="cancerstemcell" />
+		<property name="hallmark" />
+		<property name="pubmedid" />
+		<property name="diseasecategory" />
+		<property name="diseasename2" />
+		<property name="regulatortype" />
+		<property name="targettype" />
+		<property name="regulatorensembleid" />
+		<property name="targetensembleid" />
+		<property name="regulatorentrezid" />
+		<property name="targetentrezid" />
+		<property name="regulatoraliases" />
+		<property name="targetaliases" />
+		<property name="evidence" />
+		<property name="searchregulatorymechanism" />
+	</class>
+	
+	<class name="hdfregulatoryd"  lazy="false">  
+        <id name="rid" />   <!-- hibernate必须要有主键 -->
+	    <property name="diseasename" />
+		<property name="regulator" />
+		<property name="target" />
+        <property name="regulatorytype" />
+        <property name="levelofregulation" />
+		<property name="regulationdiretion" />
+		<property name="methodfcor" />
+		<property name="expressionpattern" />
+		<property name="methodfexp" />
+		<property name="dataaccession" />
+		<property name="datasite" />
+		<property name="influencedfunction" />
+		<property name="regulatorymechanism" />
+		<property name="drugs" />
+		<property name="cancerstemcell" />
+		<property name="hallmark" />
+		<property name="pubmedid" />
+		<property name="diseasecategory" />
+		<property name="diseasename2" />
+		<property name="regulatortype" />
+		<property name="targettype" />
+		<property name="regulatorensembleid" />
+		<property name="regulatorlocation" />
+		<property name="targetensembleid" />
+		<property name="targetlocation" />
+		<property name="regulatorentrezid" />
+		<property name="targetentrezid" />
+		<property name="regulatoraliases" />
+		<property name="targetaliases" />
+		<property name="evidence" />
+		<property name="searchregulatorymechanism" />
+	</class>
+	
+	<class name="hdfnetwork"  lazy="false">  
+        <id name="rid" />   <!-- hibernate必须要有主键 -->
+	    <property name="diseasename" />
+		<property name="regulator" />
+		<property name="regulatorentrezid" />
+		<property name="regulatorensembleid" />
+		<property name="regulatoraliases" />
+		<property name="target" />
+		<property name="targetentrezid" />
+		<property name="targetensembleid" />
+		<property name="targetaliases" />
+		<property name="influencedfunction" />
+		<property name="regulatorymechanism" />
+		<property name="searchregulatorymechanism" />
+		<property name="drugs" />
+		<property name="diseasecategory" />
+		<property name="diseasename2" />
+	</class>
+	
+	<class name="browser"  lazy="false">
+	    <id name="id" />    <!-- hibernate必须要有主键 -->
+	    <property name="pId" />
+		<property name="name" />
+		<property name="target"/>
+		<property name="open" />
+		<property name="icon" />
+	</class>
+	
+    <class name="submit"  lazy="false">
+        <id name="id">     <!-- hibernate必须要有主键 -->
+        	<!-- <generator class="identity" /> -->   <!-- 自动递增 是 -->
+        	<generator class="increment" />  <!-- 自动递增 -->
+        </id>
+	    <property name="diseasename" />
+		<property name="regulator" />
+		<property name="target" />
+		<property name="regulatorymechanism"/>
+		<property name="regulationdiretion" />
+		<property name="pubmedid" />
+		<property name="evidence"/>
+		<property name="email"/>
+		<property name="drug" />
+		<property name="influencedfunction" />
+		<property name="expressionpattern" />
+		<property name="submittime" generated="insert" not-null="true">     <!-- 实时记录插入的时间 -->
+    		<column name="submittime" sql-type="timestamp" default="CURRENT_TIMESTAMP"/>
+    	</property>	
+	</class>
+    
+    <class name="diffexpression"  lazy="false">
+	    <id name="gene" />   
+	    <property name="genename" />
+		<property name="blca" />
+		<property name="blcalog2foldchange" />
+		<property name="blcapadj" />
+		<property name="brca" />
+		<property name="brcalog2foldchange" />
+		<property name="brcapadj" />
+		<property name="cesc" />
+		<property name="cesclog2foldchange" />
+		<property name="cescpadj" />
+		<property name="chol" />
+		<property name="chollog2foldchange" />
+		<property name="cholpadj" />
+		<property name="coad" />
+		<property name="coadlog2foldchange" />
+		<property name="coadpadj" />
+		<property name="esca" />
+		<property name="escalog2foldchange" />
+		<property name="escapadj" />
+		<property name="gbm" />
+		<property name="gbmlog2foldchange" />
+		<property name="gbmpadj" />
+		<property name="hnsc" />
+		<property name="hnsclog2foldchange" />
+		<property name="hnscpadj" />
+		<property name="kich" />
+		<property name="kichlog2foldchange" />
+		<property name="kichpadj" />
+		<property name="kirc" />
+		<property name="kirclog2foldchange" />
+		<property name="kircpadj" />
+		<property name="kirp" />
+		<property name="kirplog2foldchange" />
+		<property name="kirppadj" />
+		<property name="lihc" />
+		<property name="lihclog2foldchange" />
+		<property name="lihcpadj" />
+		<property name="luad" />
+		<property name="luadlog2foldchange" />
+		<property name="luadpadj" />
+		<property name="lusc" />
+		<property name="lusclog2foldchange" />
+		<property name="luscpadj" />
+		<property name="paad" />
+		<property name="paadlog2foldchange" />
+		<property name="paadpadj" />
+		<property name="pcpg" />
+		<property name="pcpglog2foldchange" />
+		<property name="pcpgpadj" />
+		<property name="prad" />
+		<property name="pradlog2foldchange" />
+		<property name="pradpadj" />
+		<property name="read" />
+		<property name="readlog2foldchange" />
+		<property name="readpadj" />
+		<property name="sarc" />
+		<property name="sarclog2foldchange" />
+		<property name="sarcpadj" />
+		<property name="skcm" />
+		<property name="skcmlog2foldchange" />
+		<property name="skcmpadj" />
+		<property name="stad" />
+		<property name="stadlog2foldchange" />
+		<property name="stadpadj" />
+		<property name="thca" />
+		<property name="thcalog2foldchange" />
+		<property name="thcapadj" />
+		<property name="thym" />
+		<property name="thymlog2foldchange" />
+		<property name="thympadj" />
+		<property name="ucec" />
+		<property name="uceclog2foldchange" />
+		<property name="ucecpadj" />
+	</class>
+	
+	<class name="geodiffexpression"  lazy="false">
+	    <id name="id" />   
+	    <property name="rid" />
+	    <property name="target" />
+	    <property name="gseid" />
+		<property name="tmeanexp" />
+		<property name="tlog2foldchange" />
+		<property name="tpadj" />
+		<property name="regulator" />
+		<property name="rmeanexp" />
+		<property name="rlog2foldchange" />
+		<property name="rpadj" />
+		<property name="control" />
+		<property name="cases" />
+
+	</class>
+	
+    <class name="sampleannotation"  lazy="false">
+	    <id name="sampleid" />  
+	    <property name="cancertype" />
+		<property name="sampletype" />
+	</class>
+	
+	<class name="diffexpressedboxplot"  lazy="false">
+	    <id name="gene" />  <!-- hibernate必须要有主键 -->
+	    <property name="genename" />
+	    <property name="cancer" />
+		<property name="normal" />
+		<property name="yrange" />
+	</class>
+	
+	<class name="geodiffexpressedboxplot"  lazy="false">
+	    <id name="id" />  <!-- hibernate必须要有主键 -->
+	    <property name="rid" />
+	    <property name="type" />  
+	    <property name="genename" />
+	    <property name="cancer" />
+		<property name="normal" />
+		<property name="yrange" />
+	</class>
+	
+	<class name="correlationheatmap"  lazy="false">
+	    <id name="rid" />    
+	    <property name="heatmapdata" />
+	</class>
+	
+	<class name="scatterplot"  lazy="false">
+	    <id name="rid" />     
+		<property name="regulator" />
+		<property name="target" />
+		<property name="acc" />
+		<property name="blca" />
+		<property name="brca" />
+		<property name="cesc" />
+		<property name="chol" />
+		<property name="coad" />
+		<property name="dlbc" />
+		<property name="esca" />
+		<property name="gbm" />
+		<property name="hnsc" />
+		<property name="kich" />
+		<property name="kirc" />
+		<property name="kirp" />
+		<property name="laml" />
+		<property name="lgg" />
+		<property name="lihc" />
+		<property name="luad" />
+		<property name="lusc" />
+		<property name="meso" />
+		<property name="ov" />
+		<property name="paad" />
+		<property name="pcpg" />
+		<property name="prad" />
+		<property name="read" />
+		<property name="sarc" />
+		<property name="skcm" />
+		<property name="stad" />
+		<property name="tgct" />
+		<property name="thca" />
+		<property name="thym" />
+		<property name="ucec" />
+		<property name="ucs" />
+		<property name="uvm" />
+	</class>
+	
+	<class name="gsecorrelationheatmap"  lazy="false">
+	    <id name="rid" />    
+	    <property name="heatmapdata" />
+	</class>
+	
+	<class name="gsescatterplot"  lazy="false">
+	    <id name="id" />
+	    <property name="rid" />    
+	    <property name="regulator" />  
+	    <property name="target" />  
+	    <property name="gseid" />  
+	    <property name="scatterdata" /> 
+	</class>
+</hibernate-mapping>

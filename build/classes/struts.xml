@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN" "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+   <!--   <constant name="struts.enable.DynamicMethodInvocation" value="false" /> -->
+	<constant name="struts.devMode" value="false" />	
+	<constant name="struts.multipart.maxSize" value="2048000000"/>
+	<package name="default" extends="struts-default,json-default" namespace="/">
+	    
+	    <default-action-ref name="index"></default-action-ref> 
+		
+		<global-results>
+			<result name="error">jsp/Error.jsp</result>
+		</global-results>
+		
+		<global-exception-mappings>
+			<exception-mapping exception="java.lang.Exception" result="error" />
+		</global-exception-mappings>
+		
+		<action name="index">
+			<result>index.jsp</result>
+		</action>
+		
+		<action name="SearchAction" class="actions.SearchAction" method="Search">
+			<result name="success">jsp/DetailSearchRes.jsp</result>
+		</action>
+		
+		<action name="CaculateExpset" class="actions.CaculateExpsetAction" method="CaculateExpset">
+			<result name="success">jsp/RCaculate.jsp</result>
+		</action>
+		
+		<action name="ScatterSearch" class="actions.ScatterSearchAction" method="ScatterSearch">
+		 	<result name="success" type="json">
+                  <param name="includeProperties">scatterdata,cancertype</param>
+            </result>
+		</action>
+		  
+	      
+	  </package>
+	  
+	  <include file="example.xml" />
+
+</struts>

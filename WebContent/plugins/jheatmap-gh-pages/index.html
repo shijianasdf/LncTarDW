@@ -1,0 +1,219 @@
+<html>
+<head>
+    <title>jHeatmap JavaScript heatmap viewer for the web</title>
+
+    <link href="images/colorbox/colorbox.css" rel="stylesheet" type="text/css">
+
+    <script type="text/javascript" src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+    <script type="text/javascript" src="images/colorbox/jquery.colorbox-min.js"></script>
+
+    <style type="text/css">
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font: 16px Helvetica, Sans-Serif;
+            line-height: 24px;
+        }
+
+        .clear {
+            clear: both;
+        }
+
+        #page-wrap {
+            width: 800px;
+            margin: 40px auto 60px;
+        }
+
+        #pic {
+            float: right;
+            margin: -20px 0 0 0;
+        }
+
+        h1 {
+            margin: 0 0 16px 0;
+            padding: 0 0 16px 0;
+            font-size: 42px;
+            font-weight: bold;
+            letter-spacing: -2px;
+            border-bottom: 1px solid #999;
+        }
+
+        h2 {
+            font-size: 20px;
+            margin: 0 0 6px 0;
+            position: relative;
+        }
+
+        h2 span {
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            font-style: italic;
+            font-family: Georgia, Serif;
+            font-size: 16px;
+            color: #999;
+            font-weight: normal;
+        }
+
+        p {
+            margin: 0 0 16px 0;
+        }
+
+        a {
+            color: #999;
+            text-decoration: none;
+            border-bottom: 1px dotted #999;
+        }
+
+        a:hover {
+            border-bottom-style: solid;
+            color: black;
+        }
+
+        ul {
+            margin: 0 0 32px 17px;
+        }
+
+        #objective {
+            width: 450px;
+            float: left;
+        }
+
+        #objective p {
+            font-family: Georgia, Serif;
+            font-style: italic;
+            color: #666;
+        }
+
+        dt {
+            font-style: italic;
+            font-weight: bold;
+            font-size: 18px;
+            text-align: right;
+            padding: 0 26px 0 0;
+            width: 150px;
+            float: left;
+            height: 100px;
+            border-right: 1px solid #999;
+        }
+
+        dd {
+            width: 600px;
+            float: right;
+        }
+
+        dd.clear {
+            float: none;
+            margin: 0;
+            height: 15px;
+        }
+
+	.alert {
+		padding: 8px 35px 8px 14px;
+		margin-bottom: 20px;
+		text-shadow: 0 1px 0 rgba(255, 255, 255, 0.5);
+		background-color: #FCF8E3;
+		color: #C09853;
+		border: 1px solid #FBEED5;
+		-webkit-border-radius: 4px;
+		-moz-border-radius: 4px;
+		border-radius: 4px;
+	}
+    </style>
+</head>
+<body>
+
+<div id="page-wrap">
+
+    <img src="examples/images/screenshot.png" alt="jHeatmap screenshot" id="pic"/>
+
+    <div>
+        <h1>jHeatmap</h1>
+    </div>
+
+    <div id="objective">
+        <p>Interactive web heatmap viewer built with JavaScript</p>
+    </div>
+
+    <div class="clear"></div>
+
+    <dl>
+        <dd class="clear"></dd>
+
+        <dt>Examples</dt>
+        <dd>
+            <ul>
+                <li><a class="iframe cboxelement" href="examples/quickstart/step0.html">Quick start: Heatmap with code</a></li>
+                <li><a class="iframe cboxelement" href="examples/tcgagbm/index.html">Cancer samples cohort</a></li>
+                <li><a class="iframe cboxelement" href="examples/enrichment/index.html">Enrichment analysis</a></li>
+                <li><a class="iframe cboxelement" href="examples/bigmatrix/index.html">Expression arrays</a></li>
+                <li><a class="iframe cboxelement" href="examples/toolbar/index.html">Heatmap with toolbar</a></li>
+            </ul>
+        </dd>
+        <dd class="clear"></dd>
+
+        <dt>Download</dt>
+        <dd>
+            <ul>
+                <li><a href="https://github.com/jheatmap/jheatmap/archive/gh-pages.zip">Latest version</a>
+            </ul>
+        </dd>
+        <dd class="clear"></dd>
+
+
+        <dt>Documentation</dt>
+        <dd>
+            <ul>
+                <li><a class="iframe cboxelement" href="documentation/out/jheatmap.readers.html">Readers</a></li>
+                <li><a class="iframe cboxelement" href="documentation/out/jheatmap.decorators.html">Decorators</a></li>
+                <li><a class="iframe cboxelement" href="documentation/out/jheatmap.aggregators.html">Aggregators</a></li>
+                <li><a class="iframe cboxelement" href="documentation/out/jheatmap.sorters.html">Sorters</a></li>
+                <li><a class="iframe cboxelement" href="documentation/out/jheatmap.filters.html">Filters</a></li>
+            </ul>
+        </dd>
+	<dd class="clear"></dd>
+
+        <dt>Integration</dt>
+        <dd>
+            <ul>
+                <li><a class="iframe cboxelement" href="https://biojs.github.io/">BioJS</a> is a registry of JavaScript libraries and aims to provide all biological data on the web. jHeatmap is also a part of the BioJS registry and is installed automatically with BioJS</li>
+                <li><a class="iframe cboxelement" href="http://ipython.org/notebook.html">IPython Notebook</a> is a web-based interactive computational environment where you can combine code execution, text, mathematics, plots and rich media into a single document. We have written a python wrapper for representing DataFrames as heatmaps with jHeatmap. You may find the code and installation instructions at the <a href="https://github.com/jheatmap/jheatmap-ipython">jHeatmap-iPython repository</li>
+            </ul>
+        </dd>
+	<dd class="clear"></dd>
+
+	<div style="line-height: 1.35; " class="csl-bib-body">
+<div style="clear: left; " class="csl-entry alert">
+<h3>Citation</h3>
+<div style="margin: 0 .4em 0 1.5em;" class="csl-right-inline">Deu-Pons J, Schroeder MP, Lopez-Bigas N. <strong>jHeatmap: an interactive heatmap viewer for the web.</strong> Bioinformatics. 2014 Feb 23. <a href="http://bioinformatics.oxfordjournals.org/content/early/2014/02/23/bioinformatics.btu094.abstract">doi: 10.1093/bioinformatics/btu094</a> </div>
+</div>
+<span class="Z3988" title="url_ver=Z39.88-2004&amp;ctx_ver=Z39.88-2004&amp;rfr_id=info%3Asid%2Fzotero.org%3A2&amp;rft_id=info%3Adoi%2F10.1093%2Fbioinformatics%2Fbtu094&amp;rft_id=info%3Apmid%2F24567544&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&amp;rft.genre=article&amp;rft.atitle=jHeatmap%3A%20an%20interactive%20heatmap%20viewer%20for%20the%20web&amp;rft.jtitle=Bioinformatics&amp;rft.stitle=Bioinformatics&amp;rft.aufirst=Jordi&amp;rft.aulast=Deu-Pons&amp;rft.au=Jordi%20Deu-Pons&amp;rft.au=Michael%20P.%20Schroeder&amp;rft.au=Nuria%20Lopez-Bigas&amp;rft.date=2014-02-23&amp;rft.pages=btu094&amp;rft.issn=1367-4803%2C%201460-2059"></span>
+</div>
+	
+        <dd class="clear"></dd>
+        <p style="text-align: justify;">jHeatmap is designed for incorporation into web portals and applications so it has the above listed extension points which may be adapted to the developer's needs: data readers, cell decorators, data aggregation, sorting algorithms and filters.</p> 
+<p style="text-align: justify;">Three data readers which allow to read tab separated data into the heatmap and annotations respectively are available. A decorator is a function that defines the color scale to use in the heatmap cells. jHeatmap comes with seven implementations fit for different data types. An aggregator is a function that collapses an array of numbers (rows or columns) into a single number. Aggregators are used in combination with the default sorter. Custom complex sorters are also possible, such as the already available MutualExclusiveSorter. Filters can be added to rows and columns as for example the non-significance filter will hide rows or columns that contain no significant p-values.</p>
+
+    </dl>
+
+</div>
+
+<a href="https://github.com/jheatmap/jheatmap"><img
+        style="position: absolute; top: 0; right: 0; border: 0;"
+        src="https://s3.amazonaws.com/github/ribbons/forkme_right_red_aa0000.png"
+        alt="Fork me on GitHub"> </a>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-7336589-2', 'jheatmap.github.io');
+  ga('send', 'pageview');
+
+</script>
+</body>
+</html>

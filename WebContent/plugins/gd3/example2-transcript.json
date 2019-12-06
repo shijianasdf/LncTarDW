@@ -1,0 +1,18 @@
+{
+	"chr1:11100-213416453":{
+		"p-type":{
+			"mutations":[
+				{"ty":"Others","locus":"405","dataset":"UCEC","sample":"TCGA-A5-A0GB","gene":"genome"},
+				{"ty":"Others","locus":"581","dataset":"OV","sample":"TCGA-24-1565","gene":"genome"}
+			],
+			"gene":"genome",
+			"length":766,
+			"domains":{  //peak区域
+				"PFAM":[
+					{"end":713,"start":400,"name":"peak"}
+				]
+			}
+		}
+	}
+
+}

@@ -1,0 +1,3 @@
+id	Species	chr	start	end	TargetGene	TargetRegion	DiseaseType	varType	varSite	mutType	varCons	Assembly	PMID	Journal	Year	comment
+0	Homo sapiens	chr6	28234156	28234178	BTN3A2	NA	gastric cancer	SNP	rs2799077	C > T	loss of enhancer	hg19	28246015	Gastroenterology	2017	NA
+1	Homo sapiens	chr6	28236326	28236348	BTN3A2	NA	gastric cancer	SNP	rs2799079	A > C	loss of enhancer	hg19	28246015	Gastroenterology	2017	NA

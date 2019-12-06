@@ -1,0 +1,125 @@
+*{
+    margin:0px;
+    padding:0px;
+}
+
+.footer::before{
+            content:"";
+            background: url("image/gpa.png") no-repeat;
+            position:absolute;
+            height:90px;
+            width:182px;
+            left: 100px;
+}
+.nav-container{
+    width:70%;
+    position: absolute;
+    top:40px;
+    right:200px;
+}
+#navbar{
+    height: 100px;
+    position: relative;
+    border-radius: 0px;
+    margin-bottom: 0px;
+    /*background-color:rgb(60,141,188) !important;*/
+}
+#navbar-image{
+    position:absolute;
+    top:0px;
+    left:150px;
+
+}
+#bs-example-navbar-collapse-1{
+    position: absolute;
+    top: 50px;
+    right: 60px;
+    width: 70%;
+    height: 70px;
+}
+#bs-example-navbar-collapse-1 ul li{
+    font-size:20px;
+}
+.navbar-bottom3{
+    height: 5px;
+    background-color: #245269;
+}
+.navbar-bottom2{
+    height: 5px;
+    background-color: #269abc;
+}
+.navbar-bottom1{
+    height: 5px;
+    background-color: #5f3f3f;
+}
+.global-search{
+    width:100%;
+    height: 300px;
+    background-color: rgb(231,247,249);
+}
+.image-region{
+    display:inline-block;
+    width:30%;
+}
+.input-region{
+    display:inline-block;
+    width:60%;
+    margin-top:40px;
+}
+#documentation{
+    color: rgb(57,138,135);
+    height: 150px;
+    border-radius: 15px;
+}
+#search,#browser,#documentation,#download,#help,#submit{
+    color: rgb(57,138,135);
+    height: 150px;
+    border-radius: 15px;
+}
+
+#documentation:hover,#submit:hover,#browser:hover,#download:hover,#help:hover,#search:hover{
+    background-color: #FFF6EC;
+}
+
+.hdfregulator-toolbar{
+    margin-top:100px;
+}
+.over{
+    margin-top:100px;
+    text-align:center;
+}
+
+.footer{
+    width:100%;
+    height:100px;
+    margin-top:100px;
+    background-color: rgb(51,51,51);
+    position:relative;
+    color:white;
+}
+.footer p{
+    position:absolute;
+    top:50%;
+    left:50%; 
+    margin-top:-20px;
+    margin-left:-400px; 
+    width: 800px;
+    height: 40px;    
+}
+#ResultTable{
+	margin-top:20px;
+}
+.box-title{  /*panelͷ*/
+	display: inline-block;
+    padding: 10px 0px 10px 10px;
+    margin: 0;
+    font-size: 20px;
+    font-weight: 400;
+    float: left;
+    cursor: default;
+}
+.header{ /*h*/
+	font-family: 'Source Sans Pro',
+	margin: 0;
+	font-size: 24px;
+}

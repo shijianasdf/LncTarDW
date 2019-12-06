@@ -1,0 +1,1919 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib prefix="s" uri="/struts-tags"%>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta  name="keywords" content="Driver mutations,driver mutations,Mutual exclusivity,biological database, bioinformatics">
+	<meta  name="description" content="Search and download the information for the Mutual exclusivity. MutExGenome is a database of Mutual Exclusive mutations in mutiple species.">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>LncTarD</title>
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/test.css"/>
+    <link rel="stylesheet" href="css/loading.css" type="text/css" media="screen" />
+    <!-- jquery-ui-css -->
+	<link rel="stylesheet" href="css/jquery-ui.min.css">
+	 <!-- 多选下拉菜单 -->
+    <link rel="stylesheet" href="bootstrap-multiselect/dist/css/bootstrap-multiselect.css" type="text/css"/>
+    <!-- jQuery -->
+	<script src="js/jquery.min.js"></script>
+	<!-- jquery-UI-js -->
+    <script src="plugins/jQueryUI/jquery-ui.min.js"></script>
+	<!-- bootstrap -->
+	<script src="js/bootstrap.min.js"></script>
+	<!-- 多选下拉菜单 -->
+	<script type="text/javascript" src="bootstrap-multiselect/dist/js/bootstrap-multiselect.js"></script>
+
+	<style>
+		  .ui-autocomplete{
+		    max-height: 100px;
+		    overflow-y: auto;
+		    /* 闃叉姘村钩婊氬姩鏉� */
+		    overflow-x: hidden;
+		  }
+		  /* IE 6 涓嶆敮鎸� max-height
+		   * 鎴戜滑浣跨敤 height 浠ｆ浛锛屼絾鏄繖浼氬己鍒惰彍鍗曟�绘槸鏄剧ず涓洪偅涓珮搴�
+		   */
+		  * html .ui-autocomplete {
+		    height: 100px;
+		  }
+  </style>
+
+
+</head>
+<body>
+<div class="fuzzy-advSearch" id="fuzzy"></div>
+	      <div class="loading" id="loading">
+		  <img alt="loading" title="loading" src="image/index.gif">
+        </div>
+       <nav id="navbar" class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+           <div class="container"> 
+              <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                   <ul class="nav navbar-nav navbar-right">
+                       <li class="active"><a href="/LncTarDW/index.jsp">Home</a></li>
+                      <!--  <li><a href="/LncTarD/jsp/Browser.jsp">Browser</a></li>
+                       <li><a href="/LncTarD/JumpToAdvancedSearch">Search</a></li>
+                       <li><a href="/LncTarD/jsp/Download.jsp">Download</a></li>
+                       <li><a href="/LncTarD/jsp/Submit.jsp">Submit</a></li>
+                       <li><a href="/LncTarD/jsp/Help.jsp">Help</a></li> -->
+                   </ul>
+               </div> 
+           </div>
+       </nav>
+       <div class="navbar-bottom1"></div>
+       <div class="navbar-bottom2"></div>
+       <div class="navbar-bottom3"></div>
+       
+       <div class="container">
+            <!-- <div class="row">
+            	<div class="col-md-12" style="margin-top:10px;">
+            		<h1 style="text-align:center;">软件著作</h1>
+            	</div>
+            </div> -->
+       		<div class="row">
+              <div class="col-md-6" style="margin-top:20px;">
+                 <div class="panel panel-default">
+       			    <div class="panel-heading"><h2 class="panel-title">TCGA search</h2></div>
+       				
+       				<div class="panel-body">
+                 <form  class="form-horizontal" role="form" action="SearchAction" method="post">      
+                             <%-- <div class="form-group" style="margin-top:30px;">
+                  					<label for="TCGA" class="col-sm-3 control-label">TCGA:</label>
+                  					<div class="col-sm-7">
+                  					<select id="TCGA" name="TCGA" class="form-control">
+															<option value="cisplatin">cisplatin</option>
+															<option value="gefitinib">gefitinib</option>
+															<option value="erlotinib">erlotinib</option>
+															<option value="metformin">metformin</option>
+															<option value="paclitaxel">paclitaxel</option>
+															<option value="oxaliplatin">oxaliplatin</option>
+															<option value="sanguinarine">sanguinarine</option>
+															<option value="docetaxel">docetaxel</option>
+															<option value="glucocorticoid">glucocorticoid</option>
+															<option value="progesterone">progesterone</option>
+															<option value="doxorubicin">doxorubicin</option>
+															<option value="trastuzumab">trastuzumab</option>
+															<option value="gemcitabine">gemcitabine</option>
+															<option value="temozolomide">temozolomide</option>
+															<option value="adriamycin">adriamycin</option>
+															<option value="melatonin">melatonin</option>
+															<option value="131I">131I</option>
+															<option value="panobinostat">panobinostat</option>
+															<option value="imatinib">imatinib</option>
+															<option value="methotrexate">methotrexate</option>
+															<option value="dexamethasone">dexamethasone</option>
+															<option value="5-fluorouracil">5-fluorouracil</option>
+															<option value="sunitinib">sunitinib</option>
+															<option value="cetuximab">cetuximab</option>
+															<option value="ATL-1">ATL-1</option>
+															<option value="melphalan">melphalan</option>
+															<option value="bortezomib">bortezomib</option>
+															<option value="tamoxifen">tamoxifen</option>
+															<option value="calycosin">calycosin</option>
+															<option value="DNMT1 inhibitor">DNMT1 inhibitor</option>
+															<option value="NSC141562">NSC141562</option>
+															<option value="sorafenib">sorafenib</option>
+															<option value="sulforaphane">sulforaphane</option>
+															<option value="1,25(OH)2D3">1,25(OH)2D3</option>
+															<option value="Huaier">Huaier</option>
+															<option value="conatumumab">conatumumab</option>
+															<option value="anisomycin">anisomycin</option>
+															<option value="fenofibrate">fenofibrate</option>
+															<option value="fentanyl">fentanyl</option>
+															<option value="propofol">propofol</option>
+															<option value="lapatinib">lapatinib</option>
+															<option value="I-BET151">I-BET151</option>
+															<option value="beta-Elemene">beta-Elemene</option>
+															<option value="compounds that damage DNA">compounds that damage DNA</option>
+															<option value="platinum">platinum</option>
+															<option value="corylin">corylin</option>
+															<option value="curcumin">curcumin</option>
+															<option value="vincristine">vincristine</option>
+															<option value="tigatuzumab">tigatuzumab</option>
+															<option value="chemotherapeutic agent etoposide (VP16)">chemotherapeutic agent etoposide (VP16)</option>
+															<option value="etoposide">etoposide</option>
+															<option value="pirarubicin">pirarubicin</option>
+										  </select>
+                  					</div>
+                  					      
+                  				
+                  					
+                  			
+                  			  </div>  --%>        
+                               <div class="form-group" style="margin-top:50px;">
+                               	<label for="lncRNA" class="col-sm-3 control-label" >lncRNA:</label>
+                  				    <div class="col-sm-7">
+                  				    <select id="lncRNA" name="lncRNA" class="form-control">
+                  				              <option value="91H">91H</option>
+<option value="AATBC">AATBC</option>
+<option value="AB073614">AB073614</option>
+<option value="AB074278">AB074278</option>
+<option value="ABALON">ABALON</option>
+<option value="ABHD11-AS1">ABHD11-AS1</option>
+<option value="ABL1">ABL1</option>
+<option value="AC009084.3">AC009084.3</option>
+<option value="AC078922.1">AC078922.1</option>
+<option value="AC123023.1">AC123023.1</option>
+<option value="AC132217.4">AC132217.4</option>
+<option value="ACTA2-AS1">ACTA2-AS1</option>
+<option value="ADAMTS9-AS2">ADAMTS9-AS2</option>
+<option value="AF113014">AF113014</option>
+<option value="AF119895">AF119895</option>
+<option value="AFAP1-AS1">AFAP1-AS1</option>
+<option value="AGAP2-AS1">AGAP2-AS1</option>
+<option value="AK001796">AK001796</option>
+<option value="AK022798">AK022798</option>
+<option value="AK058003">AK058003</option>
+<option value="AK093407">AK093407</option>
+<option value="AK126698">AK126698</option>
+<option value="AL163636.1">AL163636.1</option>
+<option value="AL589986.2">AL589986.2</option>
+<option value="ANCR">ANCR</option>
+<option value="AOC4P">AOC4P</option>
+<option value="AP000439.3">AP000439.3</option>
+<option value="APTR">APTR</option>
+<option value="AR">AR</option>
+<option value="AWPPH">AWPPH</option>
+<option value="BABAM2-AS1">BABAM2-AS1</option>
+<option value="BACE1-AS">BACE1-AS</option>
+<option value="BALR-6">BALR-6</option>
+<option value="BANCR">BANCR</option>
+<option value="BC032469">BC032469</option>
+<option value="BCAR4">BCAR4</option>
+<option value="BCYRN1">BCYRN1</option>
+<option value="BDNF-AS">BDNF-AS</option>
+<option value="BG981369">BG981369</option>
+<option value="BGLT3">BGLT3</option>
+<option value="BISPR">BISPR</option>
+<option value="BLACAT1">BLACAT1</option>
+<option value="BOK-AS1">BOK-AS1</option>
+<option value="BRCA1">BRCA1</option>
+<option value="BRD4">BRD4</option>
+<option value="BTG3-AS1">BTG3-AS1</option>
+<option value="BX357664">BX357664</option>
+<option value="C5orf66-AS1">C5orf66-AS1</option>
+<option value="CAMTA1-DT">CAMTA1-DT</option>
+<option value="CANT1">CANT1</option>
+<option value="CAR10">CAR10</option>
+<option value="CARMN">CARMN</option>
+<option value="CASC11">CASC11</option>
+<option value="CASC15">CASC15</option>
+<option value="CASC2">CASC2</option>
+<option value="CASC2c">CASC2c</option>
+<option value="CASC7">CASC7</option>
+<option value="CASC8">CASC8</option>
+<option value="CASC9">CASC9</option>
+<option value="CAT104">CAT104</option>
+<option value="CAV1">CAV1</option>
+<option value="CBR3-AS1">CBR3-AS1</option>
+<option value="CCAT1">CCAT1</option>
+<option value="CCAT2">CCAT2</option>
+<option value="CCDC144NL-AS1">CCDC144NL-AS1</option>
+<option value="CCDC26">CCDC26</option>
+<option value="CCEPR">CCEPR</option>
+<option value="CCND2-AS1">CCND2-AS1</option>
+<option value="CDKN2B-AS1">CDKN2B-AS1</option>
+<option value="CDR1-AS">CDR1-AS</option>
+<option value="CEBPB">CEBPB</option>
+<option value="CERNA2">CERNA2</option>
+<option value="CHAST">CHAST</option>
+<option value="cir-GLI2">cir-GLI2</option>
+<option value="circGFRA1">circGFRA1</option>
+<option value="circPVT1">circPVT1</option>
+<option value="CLMAT3">CLMAT3</option>
+<option value="COL1A1">COL1A1</option>
+<option value="COL1A2-AS1">COL1A2-AS1</option>
+<option value="CPS1-IT1">CPS1-IT1</option>
+<option value="CREBBP">CREBBP</option>
+<option value="CRNDE">CRNDE</option>
+<option value="CRRL">CRRL</option>
+<option value="CTBP1-AS">CTBP1-AS</option>
+<option value="CTNNB1">CTNNB1</option>
+<option value="CYTOR">CYTOR</option>
+<option value="DACOR1">DACOR1</option>
+<option value="DALIR">DALIR</option>
+<option value="DANCR">DANCR</option>
+<option value="DBH-AS1">DBH-AS1</option>
+<option value="DGCR5">DGCR5</option>
+<option value="DICER1-AS1">DICER1-AS1</option>
+<option value="DLEU1">DLEU1</option>
+<option value="DLEU2">DLEU2</option>
+<option value="DLG1-AS1">DLG1-AS1</option>
+<option value="DLX6-AS1">DLX6-AS1</option>
+<option value="DNMT1">DNMT1</option>
+<option value="DPP10-AS1">DPP10-AS1</option>
+<option value="DUXAP10">DUXAP10</option>
+<option value="DUXAP8">DUXAP8</option>
+<option value="DUXAP9">DUXAP9</option>
+<option value="E2F1">E2F1</option>
+<option value="E2F3">E2F3</option>
+<option value="EBF3-AS">EBF3-AS</option>
+<option value="EGF">EGF</option>
+<option value="EGFR">EGFR</option>
+<option value="EGFR-AS1">EGFR-AS1</option>
+<option value="EGR1">EGR1</option>
+<option value="ENST00113">ENST00113</option>
+<option value="EP300">EP300</option>
+<option value="EPEL">EPEL</option>
+<option value="ERLNC1">ERLNC1</option>
+<option value="ESR1">ESR1</option>
+<option value="ETS1">ETS1</option>
+<option value="ETS1-AS1">ETS1-AS1</option>
+<option value="ETS2">ETS2</option>
+<option value="EWSAT1">EWSAT1</option>
+<option value="EWSR1">EWSR1</option>
+<option value="EZH2">EZH2</option>
+<option value="EZR-AS1">EZR-AS1</option>
+<option value="FAF1">FAF1</option>
+<option value="FALEC">FALEC</option>
+<option value="FAM30A">FAM30A</option>
+<option value="FAM83H-AS1">FAM83H-AS1</option>
+<option value="FAS-AS1">FAS-AS1</option>
+<option value="FBXL19-AS1">FBXL19-AS1</option>
+<option value="FENDRR">FENDRR</option>
+<option value="FER1L4">FER1L4</option>
+<option value="FEZF1-AS1">FEZF1-AS1</option>
+<option value="FGFR3-AS1">FGFR3-AS1</option>
+<option value="FILNC1">FILNC1</option>
+<option value="FLVCR1-DT">FLVCR1-DT</option>
+<option value="FOXA1">FOXA1</option>
+<option value="FOXC1">FOXC1</option>
+<option value="FOXC2-AS1">FOXC2-AS1</option>
+<option value="FOXCUT">FOXCUT</option>
+<option value="FOXD2-AS1">FOXD2-AS1</option>
+<option value="FOXD3">FOXD3</option>
+<option value="FOXD3-AS1">FOXD3-AS1</option>
+<option value="FOXM1">FOXM1</option>
+<option value="FOXO1">FOXO1</option>
+<option value="FOXP4-AS1">FOXP4-AS1</option>
+<option value="FTH1P3">FTH1P3</option>
+<option value="FTX">FTX</option>
+<option value="FUNDC2P4">FUNDC2P4</option>
+<option value="GACAT3">GACAT3</option>
+<option value="GAPLINC">GAPLINC</option>
+<option value="GAS1RR">GAS1RR</option>
+<option value="GAS5">GAS5</option>
+<option value="GAS6-AS1">GAS6-AS1</option>
+<option value="GAS8-AS1">GAS8-AS1</option>
+<option value="GASAL1">GASAL1</option>
+<option value="GATA6">GATA6</option>
+<option value="GClnc1">GClnc1</option>
+<option value="GHET1">GHET1</option>
+<option value="GHR">GHR</option>
+<option value="GIHCG">GIHCG</option>
+<option value="GPC3-AS1">GPC3-AS1</option>
+<option value="GPLD1">GPLD1</option>
+<option value="GSC-DT">GSC-DT</option>
+<option value="GSEC">GSEC</option>
+<option value="H19">H19</option>
+<option value="HAGLR">HAGLR</option>
+<option value="HAGLROS">HAGLROS</option>
+<option value="HAND2-AS1">HAND2-AS1</option>
+<option value="HANR">HANR</option>
+<option value="HAS2-AS1">HAS2-AS1</option>
+<option value="HBX">HBX</option>
+<option value="HCG11">HCG11</option>
+<option value="HEIH">HEIH</option>
+<option value="HGF">HGF</option>
+<option value="HIC1">HIC1</option>
+<option value="HIF1A">HIF1A</option>
+<option value="HIF1A-AS1">HIF1A-AS1</option>
+<option value="HIF1A-AS2">HIF1A-AS2</option>
+<option value="HIT000218960">HIT000218960</option>
+<option value="HK2P1">HK2P1</option>
+<option value="HNF1A">HNF1A</option>
+<option value="HNF1A-AS1">HNF1A-AS1</option>
+<option value="HNRNPKP2">HNRNPKP2</option>
+<option value="HOTAIR">HOTAIR</option>
+<option value="HOTAIRM1">HOTAIRM1</option>
+<option value="HOTTIP">HOTTIP</option>
+<option value="HOXA-AS2">HOXA-AS2</option>
+<option value="HOXA10-AS">HOXA10-AS</option>
+<option value="HOXA11-AS">HOXA11-AS</option>
+<option value="HOXA13">HOXA13</option>
+<option value="HOXA5">HOXA5</option>
+<option value="HOXA9">HOXA9</option>
+<option value="HOXB13-AS1">HOXB13-AS1</option>
+<option value="HOXC-AS3">HOXC-AS3</option>
+<option value="HULC">HULC</option>
+<option value="IATPR">IATPR</option>
+<option value="IFNG-AS1">IFNG-AS1</option>
+<option value="IGF1">IGF1</option>
+<option value="IGF2-AS">IGF2-AS</option>
+<option value="IGFBP4-1">IGFBP4-1</option>
+<option value="ILF3-DT">ILF3-DT</option>
+<option value="IRAIN">IRAIN</option>
+<option value="ITGB2-AS1">ITGB2-AS1</option>
+<option value="JMJD6">JMJD6</option>
+<option value="JPX">JPX</option>
+<option value="kcna3">kcna3</option>
+<option value="KCNQ1OT1">KCNQ1OT1</option>
+<option value="KLF3-AS1">KLF3-AS1</option>
+<option value="KLF8">KLF8</option>
+<option value="KMT2A">KMT2A</option>
+<option value="KMT2C">KMT2C</option>
+<option value="KRAS">KRAS</option>
+<option value="KRT7-AS">KRT7-AS</option>
+<option value="LIFR-AS1">LIFR-AS1</option>
+<option value="LIN28A">LIN28A</option>
+<option value="linc-223">linc-223</option>
+<option value="linc-cdh4-2">linc-cdh4-2</option>
+<option value="linc-DYNC2H1-4">linc-DYNC2H1-4</option>
+<option value="LINC-PINT">LINC-PINT</option>
+<option value="LINC-ROR">LINC-ROR</option>
+<option value="linc-UFC1">linc-UFC1</option>
+<option value="LINC00052">LINC00052</option>
+<option value="LINC00092">LINC00092</option>
+<option value="LINC00161">LINC00161</option>
+<option value="LINC00174">LINC00174</option>
+<option value="LINC00176">LINC00176</option>
+<option value="LINC00222">LINC00222</option>
+<option value="LINC00261">LINC00261</option>
+<option value="LINC00312">LINC00312</option>
+<option value="LINC00313">LINC00313</option>
+<option value="LINC00319">LINC00319</option>
+<option value="LINC00339">LINC00339</option>
+<option value="LINC00346">LINC00346</option>
+<option value="LINC00460">LINC00460</option>
+<option value="LINC00461">LINC00461</option>
+<option value="LINC00462">LINC00462</option>
+<option value="LINC00472">LINC00472</option>
+<option value="LINC00473">LINC00473</option>
+<option value="LINC00483">LINC00483</option>
+<option value="LINC00511">LINC00511</option>
+<option value="LINC00515">LINC00515</option>
+<option value="LINC00518">LINC00518</option>
+<option value="LINC00554">LINC00554</option>
+<option value="LINC00589">LINC00589</option>
+<option value="LINC00599">LINC00599</option>
+<option value="LINC00630">LINC00630</option>
+<option value="LINC00662">LINC00662</option>
+<option value="LINC00668">LINC00668</option>
+<option value="LINC00672">LINC00672</option>
+<option value="LINC00673">LINC00673</option>
+<option value="LINC00707">LINC00707</option>
+<option value="LINC00844">LINC00844</option>
+<option value="LINC00858">LINC00858</option>
+<option value="LINC0086">LINC0086</option>
+<option value="LINC00941">LINC00941</option>
+<option value="LINC00958">LINC00958</option>
+<option value="LINC00961">LINC00961</option>
+<option value="LINC00963">LINC00963</option>
+<option value="LINC00974">LINC00974</option>
+<option value="LINC01013">LINC01013</option>
+<option value="LINC01116">LINC01116</option>
+<option value="LINC01118">LINC01118</option>
+<option value="LINC01121">LINC01121</option>
+<option value="LINC01133">LINC01133</option>
+<option value="LINC01138">LINC01138</option>
+<option value="LINC01139">LINC01139</option>
+<option value="LINC01225">LINC01225</option>
+<option value="LINC01260">LINC01260</option>
+<option value="LINC01426">LINC01426</option>
+<option value="LINC01446">LINC01446</option>
+<option value="LINC01503">LINC01503</option>
+<option value="LINC01510">LINC01510</option>
+<option value="LINC01567">LINC01567</option>
+<option value="LINC01605">LINC01605</option>
+<option value="LINC01606">LINC01606</option>
+<option value="LINC01619">LINC01619</option>
+<option value="LINC01672">LINC01672</option>
+<option value="LL22NC03-N64E9.1">LL22NC03-N64E9.1</option>
+<option value="lnc-bc060912">lnc-bc060912</option>
+<option value="Lnc-BM">Lnc-BM</option>
+<option value="lnc-DILC">lnc-DILC</option>
+<option value="Lnc-EGFR">Lnc-EGFR</option>
+<option value="Lnc-EPIC1">Lnc-EPIC1</option>
+<option value="lnc-GNAT1-1">lnc-GNAT1-1</option>
+<option value="Lnc-Myd88">Lnc-Myd88</option>
+<option value="lnc-Sox5">lnc-Sox5</option>
+<option value="LNC00312">LNC00312</option>
+<option value="Lnc34a">Lnc34a</option>
+<option value="LNCARSR">LNCARSR</option>
+<option value="LNCDQ">LNCDQ</option>
+<option value="lncHERG">lncHERG</option>
+<option value="LncND">LncND</option>
+<option value="LNCOC1">LNCOC1</option>
+<option value="lncR-D63785">lncR-D63785</option>
+<option value="LNCRNA-ATB">LNCRNA-ATB</option>
+<option value="lncRNA-BCAT1">lncRNA-BCAT1</option>
+<option value="lncRNA-CTD-2108O9.1">lncRNA-CTD-2108O9.1</option>
+<option value="lncRNA-ECM">lncRNA-ECM</option>
+<option value="LncRNA-HIT">LncRNA-HIT</option>
+<option value="lncRNA-LOWEG">lncRNA-LOWEG</option>
+<option value="lncRNA-NUTF2P3-001">lncRNA-NUTF2P3-001</option>
+<option value="lncRNA-p3134">lncRNA-p3134</option>
+<option value="lncRNA-PE">lncRNA-PE</option>
+<option value="lncRNA-PRLB">lncRNA-PRLB</option>
+<option value="LncRNA-SARCC">LncRNA-SARCC</option>
+<option value="lncRNA-Unigene56159">lncRNA-Unigene56159</option>
+<option value="lncRNA625">lncRNA625</option>
+<option value="lncSHRG">lncSHRG</option>
+<option value="LNCSRLR">LNCSRLR</option>
+<option value="LNMICC">LNMICC</option>
+<option value="LOC100129148">LOC100129148</option>
+<option value="LOC100507600">LOC100507600</option>
+<option value="LOC101927497">LOC101927497</option>
+<option value="LOC101930370">LOC101930370</option>
+<option value="loc285194">loc285194</option>
+<option value="LOC285194">LOC285194</option>
+<option value="LOC401317">LOC401317</option>
+<option value="LOC441178">LOC441178</option>
+<option value="LOC728196">LOC728196</option>
+<option value="LOC90784">LOC90784</option>
+<option value="LOXL1-AS1">LOXL1-AS1</option>
+<option value="LSINCT5">LSINCT5</option>
+<option value="LUADT1">LUADT1</option>
+<option value="LUCAT1">LUCAT1</option>
+<option value="LUNAR1">LUNAR1</option>
+<option value="MAGI2-AS3">MAGI2-AS3</option>
+<option value="MALAT1">MALAT1</option>
+<option value="MALINC1">MALINC1</option>
+<option value="MAP3K20-AS1">MAP3K20-AS1</option>
+<option value="MDC1-AS1">MDC1-AS1</option>
+<option value="MEG3">MEG3</option>
+<option value="MFI2">MFI2</option>
+<option value="MIAT">MIAT</option>
+<option value="MINCR">MINCR</option>
+<option value="miR-1">miR-1</option>
+<option value="miR-1-3p">miR-1-3p</option>
+<option value="miR-101-3p">miR-101-3p</option>
+<option value="miR-103">miR-103</option>
+<option value="miR-122">miR-122</option>
+<option value="miR-125b">miR-125b</option>
+<option value="miR-125b-5p">miR-125b-5p</option>
+<option value="miR-129-5p">miR-129-5p</option>
+<option value="miR-141">miR-141</option>
+<option value="miR-148a">miR-148a</option>
+<option value="miR-148b-3p">miR-148b-3p</option>
+<option value="miR-17-3p">miR-17-3p</option>
+<option value="miR-182-5p">miR-182-5p</option>
+<option value="miR-190">miR-190</option>
+<option value="miR-190a">miR-190a</option>
+<option value="miR-192">miR-192</option>
+<option value="miR-193a">miR-193a</option>
+<option value="miR-196a">miR-196a</option>
+<option value="miR-19a">miR-19a</option>
+<option value="miR-200a-3p">miR-200a-3p</option>
+<option value="miR-203">miR-203</option>
+<option value="miR-204">miR-204</option>
+<option value="miR-21">miR-21</option>
+<option value="miR-212">miR-212</option>
+<option value="miR-215">miR-215</option>
+<option value="miR-216a">miR-216a</option>
+<option value="miR-217">miR-217</option>
+<option value="miR-23b-3p">miR-23b-3p</option>
+<option value="miR-26a">miR-26a</option>
+<option value="miR-29b-3p">miR-29b-3p</option>
+<option value="miR-34a">miR-34a</option>
+<option value="miR-34c-5p">miR-34c-5p</option>
+<option value="miR-376c-3p">miR-376c-3p</option>
+<option value="miR-491-5p">miR-491-5p</option>
+<option value="miR-548k">miR-548k</option>
+<option value="miR-675">miR-675</option>
+<option value="miR-9">miR-9</option>
+<option value="MIR100HG">MIR100HG</option>
+<option value="MIR155HG">MIR155HG</option>
+<option value="MIR210HG">MIR210HG</option>
+<option value="MIR22HG">MIR22HG</option>
+<option value="MIR31HG">MIR31HG</option>
+<option value="MIR4435-2HG">MIR4435-2HG</option>
+<option value="MIR99AHG">MIR99AHG</option>
+<option value="MNX1-AS1">MNX1-AS1</option>
+<option value="MRCCAT1">MRCCAT1</option>
+<option value="MRTFA">MRTFA</option>
+<option value="MRUL">MRUL</option>
+<option value="MSTO2P">MSTO2P</option>
+<option value="MSX2P1">MSX2P1</option>
+<option value="MT1DP">MT1DP</option>
+<option value="MT1JP">MT1JP</option>
+<option value="MTOR">MTOR</option>
+<option value="MVIH">MVIH</option>
+<option value="MYC">MYC</option>
+<option value="MYCN">MYCN</option>
+<option value="MYCNOS-01">MYCNOS-01</option>
+<option value="n340790">n340790</option>
+<option value="NALT1">NALT1</option>
+<option value="NBAT1">NBAT1</option>
+<option value="NBR2">NBR2</option>
+<option value="NCK1-DT">NCK1-DT</option>
+<option value="NDC80">NDC80</option>
+<option value="NEAT1">NEAT1</option>
+<option value="NFE2L2">NFE2L2</option>
+<option value="NIFK-AS1">NIFK-AS1</option>
+<option value="NKILA">NKILA</option>
+<option value="NKX2-1-AS1">NKX2-1-AS1</option>
+<option value="NMRAL2P">NMRAL2P</option>
+<option value="NNT-AS1">NNT-AS1</option>
+<option value="NONHSAG045500">NONHSAG045500</option>
+<option value="NORAD">NORAD</option>
+<option value="NOTCH1">NOTCH1</option>
+<option value="NPTN-IT1">NPTN-IT1</option>
+<option value="NRCP">NRCP</option>
+<option value="NSUN2">NSUN2</option>
+<option value="NUF2">NUF2</option>
+<option value="OIP5-AS1">OIP5-AS1</option>
+<option value="OLA1P2">OLA1P2</option>
+<option value="PACERR">PACERR</option>
+<option value="PANDAR">PANDAR</option>
+<option value="PANTR1">PANTR1</option>
+<option value="PART1">PART1</option>
+<option value="PARTICL">PARTICL</option>
+<option value="PAUPAR">PAUPAR</option>
+<option value="PAX5">PAX5</option>
+<option value="PCA3">PCA3</option>
+<option value="PCAT1">PCAT1</option>
+<option value="PCAT14">PCAT14</option>
+<option value="PCAT29">PCAT29</option>
+<option value="PCAT6">PCAT6</option>
+<option value="PCAT7">PCAT7</option>
+<option value="PCBP2-OT1">PCBP2-OT1</option>
+<option value="PCDH10">PCDH10</option>
+<option value="PCGEM1">PCGEM1</option>
+<option value="PCSEAT">PCSEAT</option>
+<option value="PDCD4-AS1">PDCD4-AS1</option>
+<option value="PDIA3P1">PDIA3P1</option>
+<option value="PEG10">PEG10</option>
+<option value="PGK1P2">PGK1P2</option>
+<option value="PHBP1">PHBP1</option>
+<option value="PI3K">PI3K</option>
+<option value="PICSAR">PICSAR</option>
+<option value="PILRLS">PILRLS</option>
+<option value="POU3F3">POU3F3</option>
+<option value="POU5F1">POU5F1</option>
+<option value="POU6F2-AS2">POU6F2-AS2</option>
+<option value="PRAL">PRAL</option>
+<option value="PRAM1">PRAM1</option>
+<option value="PRDM16-DT">PRDM16-DT</option>
+<option value="PSG10P">PSG10P</option>
+<option value="PSMD6-AS1">PSMD6-AS1</option>
+<option value="PTCSC1">PTCSC1</option>
+<option value="PTCSC2">PTCSC2</option>
+<option value="PTCSC3">PTCSC3</option>
+<option value="PTEN">PTEN</option>
+<option value="PTENP1">PTENP1</option>
+<option value="PURPL">PURPL</option>
+<option value="PVT1">PVT1</option>
+<option value="PVT1-214">PVT1-214</option>
+<option value="PVT1-5">PVT1-5</option>
+<option value="PWAR5">PWAR5</option>
+<option value="RAB11B-AS1">RAB11B-AS1</option>
+<option value="RAB4B-EGLN2">RAB4B-EGLN2</option>
+<option value="RAD51-AS1">RAD51-AS1</option>
+<option value="RASSF1-AS1">RASSF1-AS1</option>
+<option value="RB1">RB1</option>
+<option value="RB1-DT">RB1-DT</option>
+<option value="RBM24">RBM24</option>
+<option value="RCC2-AS1">RCC2-AS1</option>
+<option value="RGMB-AS1">RGMB-AS1</option>
+<option value="RHOC">RHOC</option>
+<option value="RMRP">RMRP</option>
+<option value="RN7SK">RN7SK</option>
+<option value="RP11-169D4.1">RP11-169D4.1</option>
+<option value="RP11-190D6.2">RP11-190D6.2</option>
+<option value="RP11-296A18.3">RP11-296A18.3</option>
+<option value="RP11-317J10.2">RP11-317J10.2</option>
+<option value="RP11-436H11.5">RP11-436H11.5</option>
+<option value="RP11-445H22.4">RP11-445H22.4</option>
+<option value="RP11-543N12.1">RP11-543N12.1</option>
+<option value="RP11-552M11.4">RP11-552M11.4</option>
+<option value="RP11-708H21.4">RP11-708H21.4</option>
+<option value="RP11-713B9.1">RP11-713B9.1</option>
+<option value="RP11-714G18.1">RP11-714G18.1</option>
+<option value="RP11-789C1.1">RP11-789C1.1</option>
+<option value="RP11-79H23.3">RP11-79H23.3</option>
+<option value="RP5-1024C24.1">RP5-1024C24.1</option>
+<option value="RP5-833A20.1">RP5-833A20.1</option>
+<option value="RPL13AP23">RPL13AP23</option>
+<option value="RSU1P2">RSU1P2</option>
+<option value="RUNX1">RUNX1</option>
+<option value="RXRA">RXRA</option>
+<option value="SALL4">SALL4</option>
+<option value="SAMMSON">SAMMSON</option>
+<option value="SATB1">SATB1</option>
+<option value="SBF2-AS1">SBF2-AS1</option>
+<option value="SCHLAP1">SCHLAP1</option>
+<option value="SH3PXD2A-AS1">SH3PXD2A-AS1</option>
+<option value="SIRT1-AS">SIRT1-AS</option>
+<option value="SLC7A11-AS1">SLC7A11-AS1</option>
+<option value="SLCO4A1-AS1">SLCO4A1-AS1</option>
+<option value="SMAD4">SMAD4</option>
+<option value="SMILR">SMILR</option>
+<option value="SNAI1">SNAI1</option>
+<option value="snaR">snaR</option>
+<option value="SNHG1">SNHG1</option>
+<option value="SNHG12">SNHG12</option>
+<option value="SNHG14">SNHG14</option>
+<option value="SNHG15">SNHG15</option>
+<option value="SNHG16">SNHG16</option>
+<option value="SNHG17">SNHG17</option>
+<option value="SNHG18">SNHG18</option>
+<option value="SNHG20">SNHG20</option>
+<option value="SNHG3">SNHG3</option>
+<option value="SNHG4">SNHG4</option>
+<option value="SNHG5">SNHG5</option>
+<option value="SNHG6">SNHG6</option>
+<option value="SNHG6-003">SNHG6-003</option>
+<option value="SNHG7">SNHG7</option>
+<option value="SNHG8">SNHG8</option>
+<option value="SOCS2-AS1">SOCS2-AS1</option>
+<option value="SOX2">SOX2</option>
+<option value="SOX2-OT">SOX2-OT</option>
+<option value="SOX21-AS1">SOX21-AS1</option>
+<option value="SOX9">SOX9</option>
+<option value="SP1">SP1</option>
+<option value="SP3">SP3</option>
+<option value="SPINT1-AS1">SPINT1-AS1</option>
+<option value="SPP1">SPP1</option>
+<option value="SPRY4-IT1">SPRY4-IT1</option>
+<option value="SRF">SRF</option>
+<option value="SRSF1">SRSF1</option>
+<option value="STAT1">STAT1</option>
+<option value="STAT3">STAT3</option>
+<option value="STAT5A">STAT5A</option>
+<option value="SUMO1P3">SUMO1P3</option>
+<option value="SYK">SYK</option>
+<option value="TARDBP">TARDBP</option>
+<option value="TARID">TARID</option>
+<option value="TATDN1">TATDN1</option>
+<option value="TATDN2">TATDN2</option>
+<option value="TATDN3">TATDN3</option>
+<option value="TBILA">TBILA</option>
+<option value="TCONS_00026907">TCONS_00026907</option>
+<option value="TDRG1">TDRG1</option>
+<option value="TET3">TET3</option>
+<option value="TFAP4">TFAP4</option>
+<option value="TGFB1">TGFB1</option>
+<option value="TGFB2">TGFB2</option>
+<option value="THORLNC">THORLNC</option>
+<option value="THRIL">THRIL</option>
+<option value="TINCR">TINCR</option>
+<option value="TLR3">TLR3</option>
+<option value="TLX3">TLX3</option>
+<option value="TMEM238L">TMEM238L</option>
+<option value="TMEM75">TMEM75</option>
+<option value="TMPOP2">TMPOP2</option>
+<option value="TNF">TNF</option>
+<option value="TP53">TP53</option>
+<option value="TP53COR1">TP53COR1</option>
+<option value="TP53TG1">TP53TG1</option>
+<option value="TP63">TP63</option>
+<option value="TP73-AS1">TP73-AS1</option>
+<option value="TPM1-AS">TPM1-AS</option>
+<option value="TRERNA1">TRERNA1</option>
+<option value="TRPM2-AS">TRPM2-AS</option>
+<option value="TSLP">TSLP</option>
+<option value="TTN-AS1">TTN-AS1</option>
+<option value="TUG1">TUG1</option>
+<option value="TUSC7">TUSC7</option>
+<option value="TUSC8">TUSC8</option>
+<option value="TWIST1">TWIST1</option>
+<option value="UBE2CP3-001">UBE2CP3-001</option>
+<option value="UC.134">UC.134</option>
+<option value="uc.339">uc.339</option>
+<option value="uc.38">uc.38</option>
+<option value="uc003fir">uc003fir</option>
+<option value="UCA1">UCA1</option>
+<option value="UCC">UCC</option>
+<option value="UHRF1">UHRF1</option>
+<option value="UICLM">UICLM</option>
+<option value="UPF1">UPF1</option>
+<option value="VLDLR-AS1">VLDLR-AS1</option>
+<option value="VPS9D1-AS1">VPS9D1-AS1</option>
+<option value="WDFY3-AS2">WDFY3-AS2</option>
+<option value="WDR7-7">WDR7-7</option>
+<option value="WDR86-AS1">WDR86-AS1</option>
+<option value="WIF1">WIF1</option>
+<option value="WSPAR">WSPAR</option>
+<option value="WT1">WT1</option>
+<option value="WT1-AS">WT1-AS</option>
+<option value="XIAP-AS1">XIAP-AS1</option>
+<option value="XIST">XIST</option>
+<option value="XLOC_000647">XLOC_000647</option>
+<option value="XLOC_006390">XLOC_006390</option>
+<option value="XLOC_008466">XLOC_008466</option>
+<option value="YAP1">YAP1</option>
+<option value="YY1">YY1</option>
+<option value="ZBTB7A">ZBTB7A</option>
+<option value="ZEB1">ZEB1</option>
+<option value="ZEB1-AS1">ZEB1-AS1</option>
+<option value="ZEB2-AS1">ZEB2-AS1</option>
+<option value="ZFAS1">ZFAS1</option>
+<option value="ZFHX4-AS1">ZFHX4-AS1</option>
+<option value="ZFPM2-AS1">ZFPM2-AS1</option>
+<option value="ZXF2">ZXF2</option>
+
+										  </select></div>
+                  					      
+                               </div>        
+                               
+                               <div class="form-group" style="margin-top:50px;">
+                               	<label for="target" class="col-sm-3 control-label" >target:</label>
+                  				    <div class="col-sm-7">
+                  				    <select id="target" name="target" class="mdb-select colorful-select dropdown-primary md-form" searchable="Search here..">
+															<option value="ABCA1">ABCA1</option>
+<option value="ABCB1">ABCB1</option>
+<option value="ABCB4">ABCB4</option>
+<option value="ABCC1">ABCC1</option>
+<option value="ABCC3">ABCC3</option>
+<option value="ABCG2">ABCG2</option>
+<option value="ABL2">ABL2</option>
+<option value="AC132217.4">AC132217.4</option>
+<option value="ACSL1">ACSL1</option>
+<option value="ACTA2">ACTA2</option>
+<option value="ACVR2B">ACVR2B</option>
+<option value="ADAM10">ADAM10</option>
+<option value="ADAM17">ADAM17</option>
+<option value="ADAMTS1">ADAMTS1</option>
+<option value="ADAMTS5">ADAMTS5</option>
+<option value="ADAMTS9-AS2">ADAMTS9-AS2</option>
+<option value="ADGRL2">ADGRL2</option>
+<option value="ADH4">ADH4</option>
+<option value="AF339813">AF339813</option>
+<option value="AFAP1">AFAP1</option>
+<option value="AGAP2-AS1">AGAP2-AS1</option>
+<option value="AGER">AGER</option>
+<option value="AGPAT2">AGPAT2</option>
+<option value="AIFM2">AIFM2</option>
+<option value="AK022798">AK022798</option>
+<option value="AK055347">AK055347</option>
+<option value="AK056155">AK056155</option>
+<option value="AKAP12">AKAP12</option>
+<option value="AKAP9">AKAP9</option>
+<option value="AKT1">AKT1</option>
+<option value="AKT2">AKT2</option>
+<option value="AKT3">AKT3</option>
+<option value="AMOT">AMOT</option>
+<option value="ANGPT2">ANGPT2</option>
+<option value="ANGPTL4">ANGPTL4</option>
+<option value="ANXA2">ANXA2</option>
+<option value="AR">AR</option>
+<option value="ARF6">ARF6</option>
+<option value="ARHGAP11A">ARHGAP11A</option>
+<option value="ARHGAP18">ARHGAP18</option>
+<option value="ARID1A">ARID1A</option>
+<option value="ARL2">ARL2</option>
+<option value="ASTN1">ASTN1</option>
+<option value="ATF1">ATF1</option>
+<option value="ATG12">ATG12</option>
+<option value="ATG14">ATG14</option>
+<option value="ATG3">ATG3</option>
+<option value="ATG4D">ATG4D</option>
+<option value="ATG5">ATG5</option>
+<option value="ATG7">ATG7</option>
+<option value="ATM">ATM</option>
+<option value="AURKA">AURKA</option>
+<option value="AURKB">AURKB</option>
+<option value="AXIN2">AXIN2</option>
+<option value="AXL">AXL</option>
+<option value="BABAM2">BABAM2</option>
+<option value="BACE1">BACE1</option>
+<option value="BAD">BAD</option>
+<option value="BAG1">BAG1</option>
+<option value="BAK1">BAK1</option>
+<option value="BANCR">BANCR</option>
+<option value="BAX">BAX</option>
+<option value="BCAR4">BCAR4</option>
+<option value="BCL2">BCL2</option>
+<option value="BCL2L1">BCL2L1</option>
+<option value="BCL2L11">BCL2L11</option>
+<option value="BCL2L2">BCL2L2</option>
+<option value="BCR-ABL">BCR-ABL</option>
+<option value="BDH2">BDH2</option>
+<option value="BDNF">BDNF</option>
+<option value="BECN1">BECN1</option>
+<option value="BIRC7">BIRC7</option>
+<option value="BMI1">BMI1</option>
+<option value="BMP4">BMP4</option>
+<option value="BNIP3">BNIP3</option>
+<option value="BOK">BOK</option>
+<option value="BPTF">BPTF</option>
+<option value="BRCA1">BRCA1</option>
+<option value="BRCA2">BRCA2</option>
+<option value="BRD4">BRD4</option>
+<option value="BRI3">BRI3</option>
+<option value="BX647187">BX647187</option>
+<option value="C1QBP">C1QBP</option>
+<option value="CADM1">CADM1</option>
+<option value="CALN1">CALN1</option>
+<option value="CAMTA1">CAMTA1</option>
+<option value="CAPNS1">CAPNS1</option>
+<option value="CARD11">CARD11</option>
+<option value="CARD8">CARD8</option>
+<option value="CASC11">CASC11</option>
+<option value="CASC2">CASC2</option>
+<option value="CASP1">CASP1</option>
+<option value="CASP2">CASP2</option>
+<option value="CASP3">CASP3</option>
+<option value="CASP8">CASP8</option>
+<option value="CASP9">CASP9</option>
+<option value="CBL">CBL</option>
+<option value="CBR3-AS1">CBR3-AS1</option>
+<option value="CBS">CBS</option>
+<option value="CBX7">CBX7</option>
+<option value="CCAR2">CCAR2</option>
+<option value="CCAT1">CCAT1</option>
+<option value="CCAT2">CCAT2</option>
+<option value="CCL2">CCL2</option>
+<option value="CCL5">CCL5</option>
+<option value="CCN4">CCN4</option>
+<option value="CCNA1">CCNA1</option>
+<option value="CCNA2">CCNA2</option>
+<option value="CCNB1">CCNB1</option>
+<option value="CCND1">CCND1</option>
+<option value="CCND2">CCND2</option>
+<option value="CCNE1">CCNE1</option>
+<option value="CCNE2">CCNE2</option>
+<option value="CCNJ">CCNJ</option>
+<option value="CCT4">CCT4</option>
+<option value="CD274">CD274</option>
+<option value="CD44">CD44</option>
+<option value="CDC20">CDC20</option>
+<option value="CDC25C">CDC25C</option>
+<option value="CDC34">CDC34</option>
+<option value="CDC42">CDC42</option>
+<option value="CDC6">CDC6</option>
+<option value="CDCP1">CDCP1</option>
+<option value="CDH1">CDH1</option>
+<option value="CDH2">CDH2</option>
+<option value="CDH4">CDH4</option>
+<option value="CDH5">CDH5</option>
+<option value="CDK1">CDK1</option>
+<option value="CDK14">CDK14</option>
+<option value="CDK2">CDK2</option>
+<option value="CDK4">CDK4</option>
+<option value="CDK5R1">CDK5R1</option>
+<option value="CDK6">CDK6</option>
+<option value="CDK7">CDK7</option>
+<option value="CDK8">CDK8</option>
+<option value="CDK9">CDK9</option>
+<option value="CDKN1A">CDKN1A</option>
+<option value="CDKN1B">CDKN1B</option>
+<option value="CDKN1C">CDKN1C</option>
+<option value="CDKN2A">CDKN2A</option>
+<option value="CDKN2B">CDKN2B</option>
+<option value="CDKN2B-AS1">CDKN2B-AS1</option>
+<option value="CDKN2C">CDKN2C</option>
+<option value="CDT1">CDT1</option>
+<option value="CEACAM5">CEACAM5</option>
+<option value="CELF1">CELF1</option>
+<option value="CHUK">CHUK</option>
+<option value="CKS1B">CKS1B</option>
+<option value="CLOCK">CLOCK</option>
+<option value="COL1A1">COL1A1</option>
+<option value="COL6A1">COL6A1</option>
+<option value="COX2">COX2</option>
+<option value="CPEB1">CPEB1</option>
+<option value="CPEB2">CPEB2</option>
+<option value="CPS1">CPS1</option>
+<option value="CREB1">CREB1</option>
+<option value="CREBBP">CREBBP</option>
+<option value="CRKL">CRKL</option>
+<option value="CRNDE">CRNDE</option>
+<option value="CRP">CRP</option>
+<option value="CST3">CST3</option>
+<option value="CTBP1">CTBP1</option>
+<option value="CTBP2">CTBP2</option>
+<option value="CTHRC1">CTHRC1</option>
+<option value="CTNNB1">CTNNB1</option>
+<option value="CUL4A">CUL4A</option>
+<option value="CXCL5">CXCL5</option>
+<option value="CXCR4">CXCR4</option>
+<option value="CYCS">CYCS</option>
+<option value="CYTH3">CYTH3</option>
+<option value="CYTOR">CYTOR</option>
+<option value="DALIR">DALIR</option>
+<option value="DANCR">DANCR</option>
+<option value="DAPK1">DAPK1</option>
+<option value="DBH-AS1">DBH-AS1</option>
+<option value="DCTN6">DCTN6</option>
+<option value="DDIT3">DDIT3</option>
+<option value="DDX23">DDX23</option>
+<option value="DDX5">DDX5</option>
+<option value="DDX58">DDX58</option>
+<option value="DEDD">DEDD</option>
+<option value="DHX36">DHX36</option>
+<option value="DHX9">DHX9</option>
+<option value="DIABLO">DIABLO</option>
+<option value="DICER1">DICER1</option>
+<option value="DIRAS3">DIRAS3</option>
+<option value="DKK1">DKK1</option>
+<option value="DLEU2">DLEU2</option>
+<option value="DLGAP1">DLGAP1</option>
+<option value="DLX6">DLX6</option>
+<option value="DNMT1">DNMT1</option>
+<option value="DNMT3A">DNMT3A</option>
+<option value="DNMT3B">DNMT3B</option>
+<option value="DPP4">DPP4</option>
+<option value="DRAIC">DRAIC</option>
+<option value="DRD1">DRD1</option>
+<option value="DSG1">DSG1</option>
+<option value="DUSP5">DUSP5</option>
+<option value="DUSP6">DUSP6</option>
+<option value="DUSP7">DUSP7</option>
+<option value="DUXAP9">DUXAP9</option>
+<option value="DYRK1A">DYRK1A</option>
+<option value="E2F1">E2F1</option>
+<option value="E2F3">E2F3</option>
+<option value="E2F5">E2F5</option>
+<option value="E2F7">E2F7</option>
+<option value="E2F8">E2F8</option>
+<option value="EBF3">EBF3</option>
+<option value="EED">EED</option>
+<option value="EEF2K">EEF2K</option>
+<option value="EGFL7">EGFL7</option>
+<option value="EGFR">EGFR</option>
+<option value="EGFR-AS1">EGFR-AS1</option>
+<option value="EGLN2">EGLN2</option>
+<option value="EGR1">EGR1</option>
+<option value="EGR2">EGR2</option>
+<option value="EIF4A3">EIF4A3</option>
+<option value="EIF4E">EIF4E</option>
+<option value="EIF4G1">EIF4G1</option>
+<option value="ELAVL1">ELAVL1</option>
+<option value="ELF2">ELF2</option>
+<option value="ELK1">ELK1</option>
+<option value="EMP1">EMP1</option>
+<option value="EPAS1">EPAS1</option>
+<option value="EPCAM">EPCAM</option>
+<option value="EPHA1">EPHA1</option>
+<option value="EPHA2">EPHA2</option>
+<option value="EPHA4">EPHA4</option>
+<option value="ERBB2">ERBB2</option>
+<option value="ERBB3">ERBB3</option>
+<option value="ERBB4">ERBB4</option>
+<option value="ERICD">ERICD</option>
+<option value="ESM1">ESM1</option>
+<option value="ESRP2">ESRP2</option>
+<option value="EWSAT1">EWSAT1</option>
+<option value="EZH2">EZH2</option>
+<option value="EZR">EZR</option>
+<option value="F10">F10</option>
+<option value="FABP5">FABP5</option>
+<option value="FADD">FADD</option>
+<option value="FAIM2">FAIM2</option>
+<option value="FAS">FAS</option>
+<option value="FASLG">FASLG</option>
+<option value="FASN">FASN</option>
+<option value="FAT4">FAT4</option>
+<option value="FBXW7">FBXW7</option>
+<option value="FBXW8">FBXW8</option>
+<option value="FERMT2">FERMT2</option>
+<option value="FEZF1">FEZF1</option>
+<option value="FGF1">FGF1</option>
+<option value="FGF2">FGF2</option>
+<option value="FGFR1">FGFR1</option>
+<option value="FGFR3">FGFR3</option>
+<option value="FHL1">FHL1</option>
+<option value="FLT1">FLT1</option>
+<option value="FMNL2">FMNL2</option>
+<option value="FN1">FN1</option>
+<option value="FOXA1">FOXA1</option>
+<option value="FOXA2">FOXA2</option>
+<option value="FOXC1">FOXC1</option>
+<option value="FOXC2">FOXC2</option>
+<option value="FOXE1">FOXE1</option>
+<option value="FOXF1">FOXF1</option>
+<option value="FOXK1">FOXK1</option>
+<option value="FOXM1">FOXM1</option>
+<option value="FOXO1">FOXO1</option>
+<option value="FOXO3">FOXO3</option>
+<option value="FOXO6">FOXO6</option>
+<option value="FOXP1">FOXP1</option>
+<option value="FOXP4">FOXP4</option>
+<option value="FOXQ1">FOXQ1</option>
+<option value="FRGCA">FRGCA</option>
+<option value="FSCN1">FSCN1</option>
+<option value="FTX">FTX</option>
+<option value="FUT4">FUT4</option>
+<option value="FZD4">FZD4</option>
+<option value="FZD7">FZD7</option>
+<option value="G6PD">G6PD</option>
+<option value="GAB2">GAB2</option>
+<option value="GACAT3">GACAT3</option>
+<option value="GADD45A">GADD45A</option>
+<option value="GALNT7">GALNT7</option>
+<option value="GAPDH">GAPDH</option>
+<option value="GAS1">GAS1</option>
+<option value="GAS1RR">GAS1RR</option>
+<option value="GAS5">GAS5</option>
+<option value="GAS6">GAS6</option>
+<option value="GATA3">GATA3</option>
+<option value="GCASPC">GCASPC</option>
+<option value="GCLC">GCLC</option>
+<option value="GCLM">GCLM</option>
+<option value="GCSAM">GCSAM</option>
+<option value="GDF15">GDF15</option>
+<option value="GFRA1">GFRA1</option>
+<option value="GIT1">GIT1</option>
+<option value="GIT2">GIT2</option>
+<option value="GLI2">GLI2</option>
+<option value="GLP1R">GLP1R</option>
+<option value="GLS2">GLS2</option>
+<option value="GLUD1">GLUD1</option>
+<option value="GPC3">GPC3</option>
+<option value="GPC6">GPC6</option>
+<option value="GPER1">GPER1</option>
+<option value="GPI">GPI</option>
+<option value="GRB2">GRB2</option>
+<option value="GREM1">GREM1</option>
+<option value="GRK2">GRK2</option>
+<option value="GRN">GRN</option>
+<option value="GSK3B">GSK3B</option>
+<option value="GSR">GSR</option>
+<option value="GSTP1">GSTP1</option>
+<option value="H19">H19</option>
+<option value="H2AFY">H2AFY</option>
+<option value="HAGLR">HAGLR</option>
+<option value="HAGLROS">HAGLROS</option>
+<option value="HAND2">HAND2</option>
+<option value="HAS2">HAS2</option>
+<option value="HCCL5">HCCL5</option>
+<option value="HDAC1">HDAC1</option>
+<option value="HDAC3">HDAC3</option>
+<option value="HDAC4">HDAC4</option>
+<option value="HDAC7">HDAC7</option>
+<option value="HELLS">HELLS</option>
+<option value="HES1">HES1</option>
+<option value="HES2">HES2</option>
+<option value="HES6">HES6</option>
+<option value="HIF1A">HIF1A</option>
+<option value="HIF1A-AS1">HIF1A-AS1</option>
+<option value="HILPDA">HILPDA</option>
+<option value="HK2">HK2</option>
+<option value="HLA-DRB1">HLA-DRB1</option>
+<option value="HLA-G">HLA-G</option>
+<option value="HMGA1">HMGA1</option>
+<option value="HMGA2">HMGA2</option>
+<option value="HMGB1">HMGB1</option>
+<option value="HMMR">HMMR</option>
+<option value="HMOX1">HMOX1</option>
+<option value="HNF1A-AS1">HNF1A-AS1</option>
+<option value="HNF4G">HNF4G</option>
+<option value="HNRNPA1">HNRNPA1</option>
+<option value="HNRNPD">HNRNPD</option>
+<option value="HNRNPK">HNRNPK</option>
+<option value="HNRNPKP2">HNRNPKP2</option>
+<option value="HNRNPUL2">HNRNPUL2</option>
+<option value="HOPX">HOPX</option>
+<option value="HOTAIR">HOTAIR</option>
+<option value="HOTTIP">HOTTIP</option>
+<option value="HOXA1">HOXA1</option>
+<option value="HOXA10">HOXA10</option>
+<option value="HOXA11">HOXA11</option>
+<option value="HOXA13">HOXA13</option>
+<option value="HOXA3">HOXA3</option>
+<option value="HOXA5">HOXA5</option>
+<option value="HOXA7">HOXA7</option>
+<option value="HOXA9">HOXA9</option>
+<option value="HOXB13">HOXB13</option>
+<option value="HOXB7">HOXB7</option>
+<option value="HOXD10">HOXD10</option>
+<option value="HSF2">HSF2</option>
+<option value="HSPA5">HSPA5</option>
+<option value="HSPB1">HSPB1</option>
+<option value="HULC">HULC</option>
+<option value="ICAM1">ICAM1</option>
+<option value="ID2">ID2</option>
+<option value="IDO1">IDO1</option>
+<option value="IFIT2">IFIT2</option>
+<option value="IGF1R">IGF1R</option>
+<option value="IGF2">IGF2</option>
+<option value="IGF2-AS">IGF2-AS</option>
+<option value="IGF2BP1">IGF2BP1</option>
+<option value="IGF2BP2">IGF2BP2</option>
+<option value="IGF2BP3">IGF2BP3</option>
+<option value="IGFBP4">IGFBP4</option>
+<option value="IKBKB">IKBKB</option>
+<option value="IKBKG">IKBKG</option>
+<option value="IL10">IL10</option>
+<option value="IL1B">IL1B</option>
+<option value="IL1RAP">IL1RAP</option>
+<option value="IL24">IL24</option>
+<option value="IL6">IL6</option>
+<option value="ILF2">ILF2</option>
+<option value="ILF3">ILF3</option>
+<option value="IMP3">IMP3</option>
+<option value="INCENP">INCENP</option>
+<option value="ING3">ING3</option>
+<option value="IQGAP1">IQGAP1</option>
+<option value="IRF4">IRF4</option>
+<option value="IRF7">IRF7</option>
+<option value="IRS1">IRS1</option>
+<option value="IRX5">IRX5</option>
+<option value="ISM1">ISM1</option>
+<option value="ITGA4">ITGA4</option>
+<option value="ITGA6">ITGA6</option>
+<option value="ITGAX">ITGAX</option>
+<option value="ITGB1">ITGB1</option>
+<option value="ITGB2">ITGB2</option>
+<option value="ITGB4">ITGB4</option>
+<option value="ITPKB">ITPKB</option>
+<option value="JAG1">JAG1</option>
+<option value="JAG2">JAG2</option>
+<option value="JAK2">JAK2</option>
+<option value="JAM2">JAM2</option>
+<option value="JARID2">JARID2</option>
+<option value="JPX">JPX</option>
+<option value="JUN">JUN</option>
+<option value="JUNB">JUNB</option>
+<option value="KCNQ1OT1">KCNQ1OT1</option>
+<option value="KDM1A">KDM1A</option>
+<option value="KDM2A">KDM2A</option>
+<option value="KDM5B">KDM5B</option>
+<option value="KDM6A">KDM6A</option>
+<option value="KDM6B">KDM6B</option>
+<option value="KEAP1">KEAP1</option>
+<option value="KIT">KIT</option>
+<option value="KLF10">KLF10</option>
+<option value="KLF12">KLF12</option>
+<option value="KLF13">KLF13</option>
+<option value="KLF14">KLF14</option>
+<option value="KLF16">KLF16</option>
+<option value="KLF2">KLF2</option>
+<option value="KLF4">KLF4</option>
+<option value="KLF6">KLF6</option>
+<option value="KMT5A">KMT5A</option>
+<option value="KPNA3">KPNA3</option>
+<option value="KRAS">KRAS</option>
+<option value="KRT19">KRT19</option>
+<option value="KRT7">KRT7</option>
+<option value="LAMB3">LAMB3</option>
+<option value="LAMC2">LAMC2</option>
+<option value="LAMTOR5">LAMTOR5</option>
+<option value="LARP1">LARP1</option>
+<option value="LASP1">LASP1</option>
+<option value="LATS1">LATS1</option>
+<option value="LATS2">LATS2</option>
+<option value="LATS2-AS1-001">LATS2-AS1-001</option>
+<option value="LAYN">LAYN</option>
+<option value="LDHA">LDHA</option>
+<option value="LEF1">LEF1</option>
+<option value="let-7">let-7</option>
+<option value="let-7a">let-7a</option>
+<option value="let-7b">let-7b</option>
+<option value="let-7c">let-7c</option>
+<option value="let-7family">let-7family</option>
+<option value="LGR5">LGR5</option>
+<option value="LIFR">LIFR</option>
+<option value="LIMK2">LIMK2</option>
+<option value="LIN28A">LIN28A</option>
+<option value="LIN28B">LIN28B</option>
+<option value="LINC00174">LINC00174</option>
+<option value="LINC00176">LINC00176</option>
+<option value="LINC00312">LINC00312</option>
+<option value="LINC00473">LINC00473</option>
+<option value="LINC00668">LINC00668</option>
+<option value="LINC00673">LINC00673</option>
+<option value="LINC01089">LINC01089</option>
+<option value="LINC01503">LINC01503</option>
+<option value="LINC01672">LINC01672</option>
+<option value="LINP1">LINP1</option>
+<option value="LITAF">LITAF</option>
+<option value="lnc-IL7R">lnc-IL7R</option>
+<option value="LNCRNA-ATB">LNCRNA-ATB</option>
+<option value="lncRNA-numb">lncRNA-numb</option>
+<option value="lncWDR59">lncWDR59</option>
+<option value="LNMICC">LNMICC</option>
+<option value="LOC401317">LOC401317</option>
+<option value="LOXL2">LOXL2</option>
+<option value="LRP2BP">LRP2BP</option>
+<option value="LRP6">LRP6</option>
+<option value="LRRK2">LRRK2</option>
+<option value="LSINCT5">LSINCT5</option>
+<option value="LTBP3">LTBP3</option>
+<option value="LUCAT1">LUCAT1</option>
+<option value="LUNAR1">LUNAR1</option>
+<option value="MACC1">MACC1</option>
+<option value="MALAT1">MALAT1</option>
+<option value="MAP1LC3A">MAP1LC3A</option>
+<option value="MAP1LC3B">MAP1LC3B</option>
+<option value="MAP1LC3B2">MAP1LC3B2</option>
+<option value="MAP2K1">MAP2K1</option>
+<option value="MAP3K11">MAP3K11</option>
+<option value="MAP3K7">MAP3K7</option>
+<option value="MAPK1">MAPK1</option>
+<option value="MAPK14">MAPK14</option>
+<option value="MAPK3">MAPK3</option>
+<option value="MAPK6">MAPK6</option>
+<option value="MAPK8">MAPK8</option>
+<option value="MARCKS">MARCKS</option>
+<option value="MARCKSL1">MARCKSL1</option>
+<option value="MCAM">MCAM</option>
+<option value="MCL1">MCL1</option>
+<option value="MCM2">MCM2</option>
+<option value="MDC1">MDC1</option>
+<option value="MDM2">MDM2</option>
+<option value="MEF2D">MEF2D</option>
+<option value="MEG3">MEG3</option>
+<option value="MET">MET</option>
+<option value="MGMT">MGMT</option>
+<option value="MIA2">MIA2</option>
+<option value="MIF">MIF</option>
+<option value="MINCR">MINCR</option>
+<option value="miR-1">miR-1</option>
+<option value="miR-100">miR-100</option>
+<option value="miR-101">miR-101</option>
+<option value="miR-101-3p">miR-101-3p</option>
+<option value="miR-106a-5p">miR-106a-5p</option>
+<option value="miR-106b">miR-106b</option>
+<option value="miR-107">miR-107</option>
+<option value="miR-10a">miR-10a</option>
+<option value="miR-122">miR-122</option>
+<option value="miR-122-5p">miR-122-5p</option>
+<option value="miR-124">miR-124</option>
+<option value="miR-124-3p">miR-124-3p</option>
+<option value="miR-1254">miR-1254</option>
+<option value="miR-125a">miR-125a</option>
+<option value="miR-125a-5p">miR-125a-5p</option>
+<option value="miR-125b">miR-125b</option>
+<option value="miR-125b-1">miR-125b-1</option>
+<option value="miR-125b-5p">miR-125b-5p</option>
+<option value="miR-126">miR-126</option>
+<option value="miR-126-3p">miR-126-3p</option>
+<option value="miR-127-5p">miR-127-5p</option>
+<option value="miR-128">miR-128</option>
+<option value="miR-129-5p">miR-129-5p</option>
+<option value="miR-1297">miR-1297</option>
+<option value="miR-130a">miR-130a</option>
+<option value="miR-130b">miR-130b</option>
+<option value="miR-133a">miR-133a</option>
+<option value="miR-133a-3p">miR-133a-3p</option>
+<option value="miR-134">miR-134</option>
+<option value="miR-134-5p">miR-134-5p</option>
+<option value="miR-135a">miR-135a</option>
+<option value="miR-135b">miR-135b</option>
+<option value="miR-136">miR-136</option>
+<option value="miR-137">miR-137</option>
+<option value="miR-138">miR-138</option>
+<option value="miR-140">miR-140</option>
+<option value="miR-140-5p">miR-140-5p</option>
+<option value="miR-141">miR-141</option>
+<option value="miR-141-3p">miR-141-3p</option>
+<option value="miR-142">miR-142</option>
+<option value="miR-142-3p">miR-142-3p</option>
+<option value="miR-143">miR-143</option>
+<option value="miR-143-3p">miR-143-3p</option>
+<option value="miR-144">miR-144</option>
+<option value="miR-145">miR-145</option>
+<option value="miR-145-5p">miR-145-5p</option>
+<option value="miR-146a">miR-146a</option>
+<option value="miR-147">miR-147</option>
+<option value="miR-147a">miR-147a</option>
+<option value="miR-148a">miR-148a</option>
+<option value="miR-148b">miR-148b</option>
+<option value="miR-150">miR-150</option>
+<option value="miR-150-5p">miR-150-5p</option>
+<option value="miR-152">miR-152</option>
+<option value="miR-153">miR-153</option>
+<option value="miR-155">miR-155</option>
+<option value="miR-155-5p">miR-155-5p</option>
+<option value="miR-15a-5p">miR-15a-5p</option>
+<option value="miR-16-1-3p">miR-16-1-3p</option>
+<option value="miR-17-5p">miR-17-5p</option>
+<option value="miR-181a">miR-181a</option>
+<option value="miR-182">miR-182</option>
+<option value="miR-184">miR-184</option>
+<option value="miR-185">miR-185</option>
+<option value="miR-185-5p">miR-185-5p</option>
+<option value="miR-186-5p">miR-186-5p</option>
+<option value="miR-18a">miR-18a</option>
+<option value="miR-18a-5p">miR-18a-5p</option>
+<option value="miR-190a-5p">miR-190a-5p</option>
+<option value="miR-191">miR-191</option>
+<option value="miR-193a">miR-193a</option>
+<option value="miR-193b">miR-193b</option>
+<option value="miR-194">miR-194</option>
+<option value="miR-194-5p">miR-194-5p</option>
+<option value="miR-195">miR-195</option>
+<option value="miR-196">miR-196</option>
+<option value="miR-196a-5p">miR-196a-5p</option>
+<option value="miR-197-3p">miR-197-3p</option>
+<option value="miR-199a">miR-199a</option>
+<option value="miR-199b">miR-199b</option>
+<option value="miR-200">miR-200</option>
+<option value="miR-200a">miR-200a</option>
+<option value="miR-200b">miR-200b</option>
+<option value="miR-200c">miR-200c</option>
+<option value="miR-200s">miR-200s</option>
+<option value="miR-202-5p">miR-202-5p</option>
+<option value="miR-203">miR-203</option>
+<option value="miR-203a">miR-203a</option>
+<option value="miR-203a-3p">miR-203a-3p</option>
+<option value="miR-204">miR-204</option>
+<option value="miR-204-5p">miR-204-5p</option>
+<option value="miR-205">miR-205</option>
+<option value="miR-206">miR-206</option>
+<option value="miR-20a">miR-20a</option>
+<option value="miR-20a-5p">miR-20a-5p</option>
+<option value="miR-20b">miR-20b</option>
+<option value="miR-21">miR-21</option>
+<option value="miR-21-5p">miR-21-5p</option>
+<option value="miR-211">miR-211</option>
+<option value="miR-211-3p">miR-211-3p</option>
+<option value="miR-214">miR-214</option>
+<option value="miR-214-3p">miR-214-3p</option>
+<option value="miR-216a">miR-216a</option>
+<option value="miR-216a-5p">miR-216a-5p</option>
+<option value="miR-216b">miR-216b</option>
+<option value="miR-217">miR-217</option>
+<option value="miR-218">miR-218</option>
+<option value="miR-218-5p">miR-218-5p</option>
+<option value="miR-219-1">miR-219-1</option>
+<option value="miR-219a-5p">miR-219a-5p</option>
+<option value="miR-22">miR-22</option>
+<option value="miR-221">miR-221</option>
+<option value="miR-222">miR-222</option>
+<option value="miR-223">miR-223</option>
+<option value="miR-224-3p">miR-224-3p</option>
+<option value="miR-224-5p">miR-224-5p</option>
+<option value="miR-23a">miR-23a</option>
+<option value="miR-23b">miR-23b</option>
+<option value="miR-23b-3p">miR-23b-3p</option>
+<option value="miR-24-3p">miR-24-3p</option>
+<option value="miR-26a">miR-26a</option>
+<option value="miR-26b">miR-26b</option>
+<option value="miR-27a">miR-27a</option>
+<option value="miR-27b">miR-27b</option>
+<option value="miR-27b-3p">miR-27b-3p</option>
+<option value="miR-29a">miR-29a</option>
+<option value="miR-29b">miR-29b</option>
+<option value="miR-29c">miR-29c</option>
+<option value="miR-300">miR-300</option>
+<option value="miR-301a">miR-301a</option>
+<option value="miR-30c">miR-30c</option>
+<option value="miR-31">miR-31</option>
+<option value="miR-320">miR-320</option>
+<option value="miR-3200">miR-3200</option>
+<option value="miR-320a">miR-320a</option>
+<option value="miR-323b-5p">miR-323b-5p</option>
+<option value="miR-324-3p">miR-324-3p</option>
+<option value="miR-326">miR-326</option>
+<option value="miR-329">miR-329</option>
+<option value="miR-330-5p">miR-330-5p</option>
+<option value="miR-335">miR-335</option>
+<option value="miR-335-5p">miR-335-5p</option>
+<option value="miR-33a">miR-33a</option>
+<option value="miR-33a-5p">miR-33a-5p</option>
+<option value="miR-342-3p">miR-342-3p</option>
+<option value="miR-34a">miR-34a</option>
+<option value="miR-34c">miR-34c</option>
+<option value="miR-362-5p">miR-362-5p</option>
+<option value="miR-3667-3p">miR-3667-3p</option>
+<option value="miR-372">miR-372</option>
+<option value="miR-374a">miR-374a</option>
+<option value="miR-375">miR-375</option>
+<option value="miR-378a-3p">miR-378a-3p</option>
+<option value="miR-382-5p">miR-382-5p</option>
+<option value="miR-384">miR-384</option>
+<option value="miR-410">miR-410</option>
+<option value="miR-423-5p">miR-423-5p</option>
+<option value="miR-424">miR-424</option>
+<option value="miR-424-5p">miR-424-5p</option>
+<option value="miR-429">miR-429</option>
+<option value="miR-432">miR-432</option>
+<option value="miR-4429">miR-4429</option>
+<option value="miR-448">miR-448</option>
+<option value="miR-449a">miR-449a</option>
+<option value="miR-451a">miR-451a</option>
+<option value="miR-454-3p">miR-454-3p</option>
+<option value="miR-455-3p">miR-455-3p</option>
+<option value="miR-484">miR-484</option>
+<option value="miR-488-3p">miR-488-3p</option>
+<option value="miR-494">miR-494</option>
+<option value="miR-495">miR-495</option>
+<option value="miR-497">miR-497</option>
+<option value="miR-497-5p">miR-497-5p</option>
+<option value="miR-503">miR-503</option>
+<option value="miR-5059">miR-5059</option>
+<option value="miR-506">miR-506</option>
+<option value="miR-506-3p">miR-506-3p</option>
+<option value="miR-519d-3p">miR-519d-3p</option>
+<option value="miR-520c-3p">miR-520c-3p</option>
+<option value="miR-545">miR-545</option>
+<option value="miR-574-5p">miR-574-5p</option>
+<option value="miR-575">miR-575</option>
+<option value="miR-613">miR-613</option>
+<option value="miR-663b">miR-663b</option>
+<option value="miR-675">miR-675</option>
+<option value="miR-675-5p">miR-675-5p</option>
+<option value="miR-6754-5p">miR-6754-5p</option>
+<option value="miR-7">miR-7</option>
+<option value="miR-758-3p">miR-758-3p</option>
+<option value="miR-761">miR-761</option>
+<option value="miR-770-5p">miR-770-5p</option>
+<option value="miR-9">miR-9</option>
+<option value="miR-9-5p">miR-9-5p</option>
+<option value="miR-93">miR-93</option>
+<option value="miR-939">miR-939</option>
+<option value="miR-940">miR-940</option>
+<option value="miR-942">miR-942</option>
+<option value="miR-96">miR-96</option>
+<option value="miR-99a-5p">miR-99a-5p</option>
+<option value="MIR100HG">MIR100HG</option>
+<option value="MIR99AHG">MIR99AHG</option>
+<option value="MKI67">MKI67</option>
+<option value="MMP1">MMP1</option>
+<option value="MMP10">MMP10</option>
+<option value="MMP13">MMP13</option>
+<option value="MMP14">MMP14</option>
+<option value="MMP16">MMP16</option>
+<option value="MMP19">MMP19</option>
+<option value="MMP2">MMP2</option>
+<option value="MMP3">MMP3</option>
+<option value="MMP7">MMP7</option>
+<option value="MMP9">MMP9</option>
+<option value="MPPED2">MPPED2</option>
+<option value="MRPL28">MRPL28</option>
+<option value="MRTFA">MRTFA</option>
+<option value="MT1DP">MT1DP</option>
+<option value="MT1F">MT1F</option>
+<option value="MTA1">MTA1</option>
+<option value="MTA2">MTA2</option>
+<option value="MTDH">MTDH</option>
+<option value="MTOR">MTOR</option>
+<option value="MUC1">MUC1</option>
+<option value="MUC2">MUC2</option>
+<option value="MUC5AC">MUC5AC</option>
+<option value="MYB">MYB</option>
+<option value="MYBL2">MYBL2</option>
+<option value="MYC">MYC</option>
+<option value="MYCN">MYCN</option>
+<option value="MYCNOS-01">MYCNOS-01</option>
+<option value="MYD88">MYD88</option>
+<option value="MYO6">MYO6</option>
+<option value="NAMPT">NAMPT</option>
+<option value="NANOG">NANOG</option>
+<option value="NAP1L1">NAP1L1</option>
+<option value="NBAT1">NBAT1</option>
+<option value="NBR2">NBR2</option>
+<option value="NCALD">NCALD</option>
+<option value="NDRG1">NDRG1</option>
+<option value="NEAT1">NEAT1</option>
+<option value="NFE2L1">NFE2L1</option>
+<option value="NFE2L2">NFE2L2</option>
+<option value="NFIA">NFIA</option>
+<option value="NFKB1">NFKB1</option>
+<option value="NFKBIA">NFKBIA</option>
+<option value="NFKBIB">NFKBIB</option>
+<option value="NKD1">NKD1</option>
+<option value="NKD2">NKD2</option>
+<option value="NLRP3">NLRP3</option>
+<option value="NMU">NMU</option>
+<option value="NOB1">NOB1</option>
+<option value="NOD2">NOD2</option>
+<option value="NONO">NONO</option>
+<option value="NOTCH1">NOTCH1</option>
+<option value="NOTCH2">NOTCH2</option>
+<option value="NOTCH3">NOTCH3</option>
+<option value="NPM1">NPM1</option>
+<option value="NPR3">NPR3</option>
+<option value="NPTN-IT1">NPTN-IT1</option>
+<option value="NQO1">NQO1</option>
+<option value="NR4A3">NR4A3</option>
+<option value="NRAS">NRAS</option>
+<option value="NRP1">NRP1</option>
+<option value="NTM">NTM</option>
+<option value="NUAK1">NUAK1</option>
+<option value="NXF3">NXF3</option>
+<option value="OGFR">OGFR</option>
+<option value="OIP5">OIP5</option>
+<option value="OLA1P2">OLA1P2</option>
+<option value="OLR1">OLR1</option>
+<option value="OS9">OS9</option>
+<option value="PA2G4">PA2G4</option>
+<option value="PABPC1">PABPC1</option>
+<option value="PAK5">PAK5</option>
+<option value="PANDAR">PANDAR</option>
+<option value="PARP1">PARP1</option>
+<option value="PAX6">PAX6</option>
+<option value="PBX1">PBX1</option>
+<option value="PCA3">PCA3</option>
+<option value="PCAT1">PCAT1</option>
+<option value="PCAT18">PCAT18</option>
+<option value="PCAT29">PCAT29</option>
+<option value="PCDH10">PCDH10</option>
+<option value="PCDHA1">PCDHA1</option>
+<option value="PCDHB5">PCDHB5</option>
+<option value="PCGEM1">PCGEM1</option>
+<option value="PCNA">PCNA</option>
+<option value="PDCD4">PDCD4</option>
+<option value="PDE4D">PDE4D</option>
+<option value="PDGFRA">PDGFRA</option>
+<option value="PDK1">PDK1</option>
+<option value="PEBP1">PEBP1</option>
+<option value="PFKFB2">PFKFB2</option>
+<option value="PGK1">PGK1</option>
+<option value="PGR">PGR</option>
+<option value="PHB">PHB</option>
+<option value="PHGDH">PHGDH</option>
+<option value="PHLPP1">PHLPP1</option>
+<option value="PHOX2A">PHOX2A</option>
+<option value="PI3K">PI3K</option>
+<option value="PI4P">PI4P</option>
+<option value="PIAS3">PIAS3</option>
+<option value="PIK3R1">PIK3R1</option>
+<option value="PIK3R2">PIK3R2</option>
+<option value="PIK3R3">PIK3R3</option>
+<option value="PIM1">PIM1</option>
+<option value="PIWIL4">PIWIL4</option>
+<option value="PKM">PKM</option>
+<option value="PLEKHM1">PLEKHM1</option>
+<option value="PLK3">PLK3</option>
+<option value="PLXNC1">PLXNC1</option>
+<option value="PMAIP1">PMAIP1</option>
+<option value="PNPLA2">PNPLA2</option>
+<option value="POU2F1">POU2F1</option>
+<option value="POU3F3">POU3F3</option>
+<option value="POU4F1">POU4F1</option>
+<option value="POU5F1">POU5F1</option>
+<option value="PPARA">PPARA</option>
+<option value="PPARG">PPARG</option>
+<option value="PPP1R10">PPP1R10</option>
+<option value="PPP1R13L">PPP1R13L</option>
+<option value="PRC2">PRC2</option>
+<option value="PRG1">PRG1</option>
+<option value="PRINS">PRINS</option>
+<option value="PRKAA1">PRKAA1</option>
+<option value="PRKAA2">PRKAA2</option>
+<option value="PRKAB1">PRKAB1</option>
+<option value="PRKAG1">PRKAG1</option>
+<option value="PRKCE">PRKCE</option>
+<option value="PRKD3">PRKD3</option>
+<option value="PRMT5">PRMT5</option>
+<option value="PROM1">PROM1</option>
+<option value="PRUNE2">PRUNE2</option>
+<option value="PSPC1">PSPC1</option>
+<option value="PTBP1">PTBP1</option>
+<option value="PTBP2">PTBP2</option>
+<option value="PTBP3">PTBP3</option>
+<option value="PTEN">PTEN</option>
+<option value="PTGS2">PTGS2</option>
+<option value="PTK2">PTK2</option>
+<option value="PTK2B">PTK2B</option>
+<option value="PTPN6">PTPN6</option>
+<option value="PUM2">PUM2</option>
+<option value="PURA">PURA</option>
+<option value="PVT1">PVT1</option>
+<option value="PXN">PXN</option>
+<option value="RAB11A">RAB11A</option>
+<option value="RAB11B">RAB11B</option>
+<option value="RAB1A">RAB1A</option>
+<option value="RAB22A">RAB22A</option>
+<option value="RAB5A">RAB5A</option>
+<option value="RAC1">RAC1</option>
+<option value="RAC2">RAC2</option>
+<option value="RAD18">RAD18</option>
+<option value="RAD51">RAD51</option>
+<option value="RAP1B">RAP1B</option>
+<option value="RASAL1">RASAL1</option>
+<option value="RASSF1">RASSF1</option>
+<option value="RASSF6">RASSF6</option>
+<option value="RB1">RB1</option>
+<option value="RBM38">RBM38</option>
+<option value="RCC2">RCC2</option>
+<option value="RELA">RELA</option>
+<option value="REST">REST</option>
+<option value="RET">RET</option>
+<option value="RGMB">RGMB</option>
+<option value="RGMB-AS1">RGMB-AS1</option>
+<option value="RGS3">RGS3</option>
+<option value="RHEB">RHEB</option>
+<option value="RHOA">RHOA</option>
+<option value="RHOB">RHOB</option>
+<option value="RHOC">RHOC</option>
+<option value="RING1">RING1</option>
+<option value="RMRP">RMRP</option>
+<option value="RN7SK">RN7SK</option>
+<option value="RND3">RND3</option>
+<option value="RNF144B">RNF144B</option>
+<option value="ROBO1">ROBO1</option>
+<option value="ROCK1">ROCK1</option>
+<option value="ROCK2">ROCK2</option>
+<option value="RP11-838N2.4">RP11-838N2.4</option>
+<option value="RPS6KB1">RPS6KB1</option>
+<option value="RRM1">RRM1</option>
+<option value="RSF1">RSF1</option>
+<option value="RTKN">RTKN</option>
+<option value="RUNX1">RUNX1</option>
+<option value="RUNX2">RUNX2</option>
+<option value="RUNX3">RUNX3</option>
+<option value="S100A1">S100A1</option>
+<option value="S100A4">S100A4</option>
+<option value="S100A7">S100A7</option>
+<option value="SCAI">SCAI</option>
+<option value="SDAD1">SDAD1</option>
+<option value="SEMA5A">SEMA5A</option>
+<option value="SETD2">SETD2</option>
+<option value="SF1">SF1</option>
+<option value="SGK1">SGK1</option>
+<option value="SHC1">SHC1</option>
+<option value="SHH">SHH</option>
+<option value="SIAH1">SIAH1</option>
+<option value="SIM2">SIM2</option>
+<option value="SIN3A">SIN3A</option>
+<option value="SIRT1">SIRT1</option>
+<option value="SIRT3">SIRT3</option>
+<option value="SKP2">SKP2</option>
+<option value="SLC26A2">SLC26A2</option>
+<option value="SLC2A1">SLC2A1</option>
+<option value="SLC6A4">SLC6A4</option>
+<option value="SLC7A11">SLC7A11</option>
+<option value="SLC7A5">SLC7A5</option>
+<option value="SMAD2">SMAD2</option>
+<option value="SMAD3">SMAD3</option>
+<option value="SMAD4">SMAD4</option>
+<option value="SMAD7">SMAD7</option>
+<option value="SMARCA4">SMARCA4</option>
+<option value="SMN1">SMN1</option>
+<option value="SMO">SMO</option>
+<option value="SMYD3">SMYD3</option>
+<option value="SNAI1">SNAI1</option>
+<option value="SNAI2">SNAI2</option>
+<option value="SNCAIP">SNCAIP</option>
+<option value="SNCG">SNCG</option>
+<option value="SNHG1">SNHG1</option>
+<option value="SNHG12">SNHG12</option>
+<option value="SNIP1">SNIP1</option>
+<option value="SNORD50A">SNORD50A</option>
+<option value="SOCS1">SOCS1</option>
+<option value="SOX2">SOX2</option>
+<option value="SOX2-OT">SOX2-OT</option>
+<option value="SOX4">SOX4</option>
+<option value="SOX7">SOX7</option>
+<option value="SOX8">SOX8</option>
+<option value="SOX9">SOX9</option>
+<option value="SP1">SP1</option>
+<option value="SPAG9">SPAG9</option>
+<option value="SPHK1">SPHK1</option>
+<option value="SPHK2">SPHK2</option>
+<option value="SPINT1">SPINT1</option>
+<option value="SPP1">SPP1</option>
+<option value="SPRY2">SPRY2</option>
+<option value="SPRY4">SPRY4</option>
+<option value="SPRY4-IT1">SPRY4-IT1</option>
+<option value="SQSTM1">SQSTM1</option>
+<option value="SREBF1">SREBF1</option>
+<option value="SRGAP1">SRGAP1</option>
+<option value="SRSF1">SRSF1</option>
+<option value="SRSF6">SRSF6</option>
+<option value="ST7L">ST7L</option>
+<option value="ST8SIA4">ST8SIA4</option>
+<option value="STAT1">STAT1</option>
+<option value="STAT3">STAT3</option>
+<option value="STAU1">STAU1</option>
+<option value="STC1">STC1</option>
+<option value="STK11">STK11</option>
+<option value="STMN1">STMN1</option>
+<option value="SUV39H1">SUV39H1</option>
+<option value="SUZ12">SUZ12</option>
+<option value="TAZ">TAZ</option>
+<option value="TCF21">TCF21</option>
+<option value="TCF4">TCF4</option>
+<option value="TCF7">TCF7</option>
+<option value="TCF7L2">TCF7L2</option>
+<option value="TCL1A">TCL1A</option>
+<option value="TDG">TDG</option>
+<option value="TEAD1">TEAD1</option>
+<option value="TERF2">TERF2</option>
+<option value="TERT">TERT</option>
+<option value="TESC">TESC</option>
+<option value="TFAM">TFAM</option>
+<option value="TGFA">TGFA</option>
+<option value="TGFB1">TGFB1</option>
+<option value="TGFB2">TGFB2</option>
+<option value="TGFBI">TGFBI</option>
+<option value="TGFBR1">TGFBR1</option>
+<option value="TGFBR2">TGFBR2</option>
+<option value="TIA1">TIA1</option>
+<option value="TIMMDC1">TIMMDC1</option>
+<option value="TIMP2">TIMP2</option>
+<option value="TIMP3">TIMP3</option>
+<option value="TINCR">TINCR</option>
+<option value="TJP1">TJP1</option>
+<option value="TLR4">TLR4</option>
+<option value="TMPO-AS1">TMPO-AS1</option>
+<option value="TMPRSS11E">TMPRSS11E</option>
+<option value="TNF">TNF</option>
+<option value="TNFAIP3">TNFAIP3</option>
+<option value="TNFRSF10B">TNFRSF10B</option>
+<option value="TNFSF10">TNFSF10</option>
+<option value="TOP2A">TOP2A</option>
+<option value="TP53">TP53</option>
+<option value="TPM1">TPM1</option>
+<option value="TPT1">TPT1</option>
+<option value="TRAF3IP2">TRAF3IP2</option>
+<option value="TRAF6">TRAF6</option>
+<option value="TRERNA1">TRERNA1</option>
+<option value="TRIP13">TRIP13</option>
+<option value="TSHR">TSHR</option>
+<option value="TUG1">TUG1</option>
+<option value="TUSC7">TUSC7</option>
+<option value="TWIST1">TWIST1</option>
+<option value="TYMS">TYMS</option>
+<option value="UCA1">UCA1</option>
+<option value="UHRF1">UHRF1</option>
+<option value="ULK1">ULK1</option>
+<option value="USF1">USF1</option>
+<option value="USP22">USP22</option>
+<option value="USP9X">USP9X</option>
+<option value="VASH2">VASH2</option>
+<option value="VDR">VDR</option>
+<option value="VEGFA">VEGFA</option>
+<option value="VEGFC">VEGFC</option>
+<option value="VIM">VIM</option>
+<option value="VOPP1">VOPP1</option>
+<option value="WDR5">WDR5</option>
+<option value="WIF1">WIF1</option>
+<option value="WNT1">WNT1</option>
+<option value="WNT2B">WNT2B</option>
+<option value="WNT3">WNT3</option>
+<option value="WNT3A">WNT3A</option>
+<option value="WNT4">WNT4</option>
+<option value="WNT5B">WNT5B</option>
+<option value="WNT6">WNT6</option>
+<option value="WSPAR">WSPAR</option>
+<option value="WT1">WT1</option>
+<option value="WWOX">WWOX</option>
+<option value="XIAP">XIAP</option>
+<option value="XIST">XIST</option>
+<option value="YAP1">YAP1</option>
+<option value="YBX1">YBX1</option>
+<option value="YES1">YES1</option>
+<option value="YY1">YY1</option>
+<option value="ZBTB7A">ZBTB7A</option>
+<option value="ZEB1">ZEB1</option>
+<option value="ZEB2">ZEB2</option>
+<option value="ZEB2-AS1">ZEB2-AS1</option>
+<option value="ZFX">ZFX</option>
+<option value="ZHX1">ZHX1</option>
+<option value="ZIC2">ZIC2</option>
+<option value="ZNF217">ZNF217</option>
+<option value="ZNF703">ZNF703</option>
+
+										  </select></div>
+                  					      
+                               </div>        
+                                
+							   
+							   <div class="form-group" style="margin-top:50px;margin-left:100px;">
+                                    <div class="col-sm-offset-1 col-sm-10">
+                                    <button  class="btn btn-primary"  type="submit" style="width:110px;text-align:center;">Search</button>
+                                    </div>
+                                </div>
+							   
+                                       
+                      </form>
+                      </div>
+                      </div>
+                      
+                      
+                      <div class="panel panel-default">
+       			     <div class="panel-heading"><h2 class="panel-title">Search your exprset</h2></div>
+       				
+       				<div class="panel-body">
+                      <form class="form-horizontal" id="cacutaleDiff" role="form" action="CaculateExpset" method="post" enctype ="multipart/form-data">
+                         <div class="form-group" style="margin-top:20px;">
+								    <label for="ylncRNA" class="col-sm-3 control-label">lncRNA</label>
+								    <div class="col-sm-7">
+								    	<input type="text" name="lncRNA" class="form-control" id="ylncRNA" placeholder="HOTAIR" data-toggle="tooltip" data-placement="bottom" title="please input lncRNA symbol name">
+								    </div>
+					      </div> 
+                         <div class="form-group" style="margin-top:20px;">
+								    <label for="ytarget" class="col-sm-3 control-label">target</label>
+								    <div class="col-sm-7">
+								    	<input type="text" name="target" class="form-control" id="ytarget" placeholder="TP53" data-toggle="tooltip" data-placement="bottom" title="please input target symbol name">
+								    </div>
+					      </div> 
+					      
+                         <div class="form-group" style="margin-top:20px;">
+								    <label for="rnaseqexpr" class="col-sm-3 control-label">RNA-seq</label>
+								    <div class="col-sm-7">
+								    	<input type="file" name="readcount" id="rnaseqexpr">
+								    </div>
+					      </div> 
+					      
+					   
+					      
+					      <div class="form-group" style="margin-top:20px;">
+								    <label for="Microarraydata" class="col-sm-3 control-label">Microarray</label>
+								    <div class="col-sm-7">
+								    	<input type="file" name="array" id="Microarraydata">
+								    </div>
+					      </div> 
+					      
+					      
+                         <div class="form-group" style="margin-top:20px;margin-left:100px;">
+                                    <div class="col-sm-offset-1 col-sm-10">
+                                    <button  class="btn btn-info"  type="button" style="width:110px;text-align:center;">Example</button>
+                                    <button  class="btn btn-primary" onclick="$Advsearch()" type="button" style="width:110px;text-align:center;">Search</button>
+                         </div>
+                                </div> 
+					      
+                      
+                      </form>
+		              </div>
+		              </div>
+              
+              
+              </div>
+                    
+              
+              
+              <div class="col-md-6" style="margin-top:10px;">
+                 <img src="img/2.jpg">
+                 <img src="img/1.jpg">
+                 
+            
+                 
+                 
+              </div>
+             		
+            </div>
+       </div>
+
+</body>
+ <script>
+                  				$('#TCGA').multiselect({
+                  					//buttonWidth: '200px',
+                  					includeSelectAllOption: true,
+                  					enableFiltering: true,
+                  					maxHeight: 300,
+                  				}); 
+    
+                  				$('#lncRNA').multiselect({
+                  					//buttonWidth: '200px',
+                  					includeSelectAllOption: true,
+                  					enableFiltering: true,
+                  					maxHeight: 300,
+                  				}); 
+                  				
+                  				$('#target').multiselect({
+                  					//buttonWidth: '200px',
+                  					includeSelectAllOption: true,
+                  					enableFiltering: true,
+                  					maxHeight: 300,
+                  				}); 
+                  				
+                  			var	$Advsearch = function(){
+                  				var lncRNA = $("#ylncRNA").val();
+                  				var target = $("#ytarget").val();
+                  				var rnaseqexpr = $("#rnaseqexpr").val();
+                  				var Microarraydata = $("#Microarraydata").val();
+                  				if(lncRNA == "" && target == ""){
+                  					alert("please input lncRNA or target gene");
+                  				}else if(rnaseqexpr == "" && Microarraydata == ""){
+                  					alert("please upload expression file");
+                  				}else{
+                  					$("#fuzzy").css("display","block");
+                  	    			$("#loading").css("display","block");
+                  					$("#cacutaleDiff").submit();//js 控制表单提交
+                  				}
+                  			}
+                  				
+</script>
+</html>
